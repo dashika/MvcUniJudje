@@ -1,0 +1,118 @@
+﻿@model IEnumerable<MvcUniJudje.WebReference.AdminDTO>
+
+@{
+    ViewBag.Title = "Администраторы";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <fieldset style="background-color: white">
+        <legend>Администраторы системы</legend>
+
+       
+                        <input type="submit" value="Создать" name="Create" />
+                        <input type="submit" value="Удалить" name="Delete" />
+                    <input type="submit" value="Допуск" class="bg-color-orange" name="Acess" />
+
+
+        <table>
+            <tr>
+                <th></th>
+                <th>
+                    @Html.Label("ID")
+                </th>
+                <th>
+                    @Html.Label("Логин")
+                </th>
+                <th>
+                    @Html.Label("Электронная почта")
+                </th>
+                <th>
+                    @Html.Label("Допуск")
+                </th>
+                <th style="width: 25px">
+                    @Html.Label("Доступ к админ панели")
+                </th>
+                <th style="width: 25px">
+                    @Html.Label("Рассылка")
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr >
+                    <td>
+                        @Html.CheckBox(item.ID.ToString())
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(modelItem => item.ID, new { @readonly = "readonly", @class = "border-color-white", @style = "width:25px;" })
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(modelItem => item.Login, new { @readonly = "readonly", @class = "border-color-white", @style = "width:100%;" })
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(modelItem => item.email, new { @readonly = "readonly", @class = "border-color-white", @style = "width:100%;" })
+                    </td>
+                    <td>
+                        @{
+                MvcUniJudje.Models.Login log = new MvcUniJudje.Models.Login();
+                var client = new MvcUniJudje.WebReference.ServiceForAdmin();
+                var buttons = client.GetCollectionButtons(Session["session_key"].ToString());
+                var access = client.GetCollectionAccess(Session["session_key"].ToString(), item.ID, true);
+                MvcUniJudje.Models.AcessButt[] AB = new MvcUniJudje.Models.AcessButt[access.Count()];
+                for (int i = 0; i < access.Count(); i++)
+                {
+                    AB[i] = new MvcUniJudje.Models.AcessButt();
+                    AB[i].Name = buttons[i].NameButton;
+                    AB[i].YesNo = access[i].YesNoAccess;
+                }    
+                        }
+                        <ul class="accordion" data-role="accordion">
+                            <li>
+                                <a href="#"></a>
+                                <div>
+                                   <table font-size: x-small;">
+                                        <tr>
+                                            <th>Область
+                                            </th>
+                                            <th>Разрешено
+                                            </th>
+                                        </tr>
+
+                                        @foreach (var c in AB)
+                                        {
+                                            <tr>
+                                                <td>
+
+                                                    @Html.TextBoxFor(m => c.Name, null, new { @readonly = "readonly", @style = "font-size:x-small", @class = "border-color-white" })
+                                                </td>
+                                                <td>
+                                                    @Html.CheckBoxFor(m => c.YesNo, new { disabled = "disabled" })
+                                                </td>
+                                            </tr>
+                                        }
+                                    </table>
+                                    @Html.ActionLink("Изменить", "AcessOne", new { id = item.ID })
+                                </div>
+                            </li>
+                        </ul>
+                    </td>
+                    <td>
+                        @Html.CheckBoxFor(modelItem => item.AllowAccessToAdminPanel)
+                    </td>
+                    <td>
+                        @Html.CheckBoxFor(modelItem => item.NotifyNewRegistrations)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Редактировать", "Edit", new { id = item.ID }) |
+                        @Html.ActionLink("Пароль", "Password", new { id = item.ID })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </fieldset>
+}

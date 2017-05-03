@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/WCFServices" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WCFServices" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="EnumGroupTypeForContest">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="InCompetition" />
+      <xs:enumeration value="OutOfCompetition" />
+      <xs:enumeration value="Candidate" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="EnumGroupTypeForContest" nillable="true" type="tns:EnumGroupTypeForContest" />
+</xs:schema>

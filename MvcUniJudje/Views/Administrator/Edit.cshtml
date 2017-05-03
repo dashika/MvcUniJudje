@@ -1,0 +1,68 @@
+﻿@model MvcUniJudje.WebReference.AdminDTO
+
+@{
+    ViewBag.Title = "Редактирование адинистратора";
+}
+
+<h2>Редакторирование</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary("", new { @style=" color: red;"})
+
+    <fieldset style="position:relative; left:3%; width:94%; ">
+        <legend>Информаци об администраторе</legend>
+
+        @Html.HiddenFor(model => model.ID)
+
+          <div class="editor-label">
+            @Html.Label("Логин : ")
+        </div>
+        <div class="editor-field">
+            @if (Html.ValidationSummary().ToString().Contains("логин"))
+        {
+            @Html.TextBoxFor(model => model.Login, new { @class = "border-color-red" })
+            }
+            else
+            {
+                @Html.TextBoxFor(model => model.Login, new { @class = "border-color-darken" })
+            }
+        </div>
+        <br />
+             <div class="editor-label">
+            @Html.Label("Электронный адрес : ")
+        </div>
+        <div class="editor-field">
+              @if (Html.ValidationSummary().ToString().Contains("Email"))
+        {
+            @Html.TextBoxFor(model => model.email, new { @class = "border-color-red" })
+              }
+            else
+            {
+                   @Html.TextBoxFor(model => model.email, new { @class = "border-color-darken" })
+              }
+        </div>
+         <br />
+        <div class="editor-label">
+            @Html.Label("Рассылка : ")
+            @Html.EditorFor(model => model.NotifyNewRegistrations)
+        </div>
+
+        <div class="editor-label">
+            @Html.Label("Разрешен доступ к административной панели : ")
+            @Html.EditorFor(model => model.AllowAccessToAdminPanel)
+        </div>
+         <br />
+        <p>
+            <input type="submit" value="Сохранить" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Вернуться назад", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

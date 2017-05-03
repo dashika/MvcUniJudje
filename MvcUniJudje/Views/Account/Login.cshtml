@@ -1,0 +1,38 @@
+﻿@model MvcUniJudje.Models.Login
+
+@{
+    ViewBag.Title = "Вход в систему";
+}
+
+<div style="margin: 10px;">
+    @using (Html.BeginForm())
+    {
+        @Html.ValidationSummary("", new { @style=" color: red;"})
+        <p>Логин :</p>
+        if (Html.ValidationSummary().ToString().Contains("логин"))
+        {
+        @Html.TextBoxFor(x => x.LoginName, new { @class = "border-color-red" })
+        }
+        else
+        {
+        @Html.TextBoxFor(x => x.LoginName, new { @class = "border-color-green" })
+        }
+        <p>Пароль :</p>
+        if (Html.ValidationSummary().ToString().Contains("пароль"))
+        {
+        @Html.PasswordFor(x => x.Password, new { @class = "border-color-red" }) 
+        }
+        else
+        {
+        @Html.PasswordFor(x => x.Password, new { @class = "border-color-green" }) 
+        }
+        <p></p>
+        <input type="submit" value="Войти" class="bg-color-greenDark" /> 
+        <p></p>
+        <a style="font-size: medium; color: black;" href="/Account/Register"><u>Зарегистрироваться</u> </a>
+        <a style="font-size: medium; color: black;" href="/Account/Forgot"><u>Восстановить пароль</u> </a>
+            
+    }
+
+</div>
+

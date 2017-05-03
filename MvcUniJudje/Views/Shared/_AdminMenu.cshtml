@@ -1,0 +1,79 @@
+﻿@{
+    List<string> str = new List<string>();
+    List<string> ButName = new List<string>();
+    //  String[] str ;
+    if (Convert.ToBoolean(Session == null ? false : Session["flag"]))
+    {
+        using (var client = new MvcUniJudje.WebReference.ServiceForAdmin())
+        {
+            MvcUniJudje.WebReference.AdminDTO admin = client.GetCollection(Session["session_key"].ToString(), Session["name"].ToString());
+                MvcUniJudje.WebReference.AccessToPanel[] ATP = client.GetCollectionAccess(Session["session_key"].ToString(), admin.ID, true);
+                MvcUniJudje.WebReference.AccessButtons[] AB = client.GetCollectionButtons(Session["session_key"].ToString());
+
+                foreach (var name in AB)
+                {
+                    str.Add(name.NameButton.Trim());
+                }
+
+                Int16 count = 0;
+                //   str = new String[ATP.Length];
+
+
+                foreach (var atp in ATP)
+                {
+                    if (atp.YesNoAccess == true)
+                    {
+                        for (int i = 0; i < AB.Length; i++)
+                        {
+                            if (AB[i].ID == atp.ID_Button)
+                            {
+                                ButName.Add(AB[i].NameButton.Trim());
+                                count++;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+    }
+}
+
+
+<ul class="dropdown-menu">
+    @if (Convert.ToBoolean(Session["flag"]))
+    {
+        if ((ButName.IndexOf(str[0])) >= 0)
+        {
+<li><a href="@Url.Content("~/User/Index/")">Пользователи</a></li>
+        }
+        if ((ButName.IndexOf(str[1])) >= 0)
+        {
+<li><a href="@Url.Content("~/Compiler/Index")">Компиляторы</a></li>
+        }
+        if ((ButName.IndexOf(str[2])) >= 0)
+        {
+<li><a href="@Url.Content("~/Submit/Index")">Сабмиты</a></li>
+        }
+        if ((ButName.IndexOf(str[3])) >= 0)
+        {
+<li><a href="grid.php">Задачи</a></li>
+        }
+        if ((ButName.IndexOf(str[4])) >= 0)
+        {
+<li><a href="grid.php">Контесты</a></li>
+        }
+        if ((ButName.IndexOf(str[5])) >= 0)
+        {
+<li><a href="@Url.Content("~/Administrator/Index")">Администраторы</a></li>
+        }
+        if ((ButName.IndexOf(str[9])) >= 0)
+        {
+<li><a href="@Url.Content("~/GroupOfUsers/Index")">Группы пользователей</a></li>
+        }
+        if ((ButName.IndexOf(str[6])) >= 0)
+        {
+<li class="divider"></li>
+<li><a href="responsive.php">Настройки </a>  </li>
+        }
+    }
+</ul>

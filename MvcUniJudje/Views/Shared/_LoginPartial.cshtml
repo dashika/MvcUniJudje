@@ -1,0 +1,18 @@
+﻿
+@if(Convert.ToBoolean(Session == null ? false : Session["flag"])) {
+    <ul class="dropdown-menu">
+        <li><a href="@Url.Content("~//")">@Session["name"].ToString()</a></li>
+      <li><a href="@Url.Content("~//Administrator/Password/"+ Convert.ToInt32(Session["id"]))">Изменить пароль</a></li>
+     <li>   <a href="@Url.Action("LogOff", "Home")">Выйти </a></li>
+       @*  @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm" })) {
+            @Html.AntiForgeryToken()
+           <a href="~/Home/LogOff/">Выйти</a>
+        }*@
+    </ul>
+  
+} else {
+    <ul class="dropdown-menu">
+        <li><a href="@Url.Content("~/Account/Login/")">Войти</a></li>
+        <li><a href="@Url.Content("~/Account/Registration/")">Регистрация</a></li>
+    </ul>
+}

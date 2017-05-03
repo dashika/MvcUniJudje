@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://127.0.0.1/API/ServiceForAdmin.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://127.0.0.1/API/ServiceForAdmin.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/WCFServices" />
+  <xs:import schemaLocation="http://127.0.0.1/API/ServiceForAdmin.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="DictionaryCollectionDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Contests" nillable="true" type="tns:ArrayOfKeyValueDTO" />
+      <xs:element minOccurs="0" name="Tasks" nillable="true" type="tns:ArrayOfKeyValueDTO" />
+      <xs:element minOccurs="0" name="Users" nillable="true" type="tns:ArrayOfKeyValueDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DictionaryCollectionDTO" nillable="true" type="tns:DictionaryCollectionDTO" />
+  <xs:complexType name="ArrayOfKeyValueDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="KeyValueDTO" nillable="true" type="tns:KeyValueDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfKeyValueDTO" nillable="true" type="tns:ArrayOfKeyValueDTO" />
+  <xs:complexType name="KeyValueDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Key" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="StringValue" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="KeyValueDTO" nillable="true" type="tns:KeyValueDTO" />
+  <xs:complexType name="ArrayOfUserDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserDTO" nillable="true" type="tns:UserDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserDTO" nillable="true" type="tns:ArrayOfUserDTO" />
+  <xs:complexType name="UserDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BlockedTo" nillable="true" type="xs:dateTime" />
+      <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ContestCollection" nillable="true" type="q1:ArrayOfint" />
+      <xs:element minOccurs="0" name="DateRegistration" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserDTO" nillable="true" type="tns:UserDTO" />
+  <xs:complexType name="UserExDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Address" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="BlockedTo" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ClassCourseGroup" nillable="true" type="xs:string" />
+      <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="ContestCollection" nillable="true" type="q2:ArrayOfint" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="EmailConfirmed" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Groups" nillable="true" type="tns:ArrayOfGroupDTO" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Institution" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LastActivityDateTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LoginFailCount" type="xs:int" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RegistrationDate" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SendNotifications" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SocialNetworks" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserExDTO" nillable="true" type="tns:UserExDTO" />
+  <xs:complexType name="ArrayOfGroupDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GroupDTO" nillable="true" type="tns:GroupDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGroupDTO" nillable="true" type="tns:ArrayOfGroupDTO" />
+  <xs:complexType name="GroupDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GroupDTO" nillable="true" type="tns:GroupDTO" />
+  <xs:complexType name="ArrayOfCompilerDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CompilerDTO" nillable="true" type="tns:CompilerDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCompilerDTO" nillable="true" type="tns:ArrayOfCompilerDTO" />
+  <xs:complexType name="CompilerDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CompilePath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompilerType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Enabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Extension" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileNameSource" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FileNameTarget" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="RunPath" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShortName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TestCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CompilerDTO" nillable="true" type="tns:CompilerDTO" />
+  <xs:complexType name="ArrayOfSubmitDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SubmitDTO" nillable="true" type="tns:SubmitDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSubmitDTO" nillable="true" type="tns:ArrayOfSubmitDTO" />
+  <xs:complexType name="SubmitDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CompilerFullName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompilerId" type="xs:int" />
+      <xs:element minOccurs="0" name="CompilerShortName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ContestId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ContestTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateTimeSend" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="MaxUsedMemory" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="MaxUsedTime" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NumberFailTest" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="SendInContestTime" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SubmitPenalty" type="xs:double" />
+      <xs:element minOccurs="0" name="SubmitPoints" type="xs:double" />
+      <xs:element minOccurs="0" name="TaskCostInContest" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="TaskId" type="xs:int" />
+      <xs:element minOccurs="0" name="TaskIdInContest" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TaskTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="TimeSendInContest" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="UserId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VerdictDescription" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VerdictId" type="xs:int" />
+      <xs:element minOccurs="0" name="VerdictIsFinal" type="xs:boolean" />
+      <xs:element minOccurs="0" name="VerdictShortCode" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SubmitDTO" nillable="true" type="tns:SubmitDTO" />
+  <xs:complexType name="ArrayOfTaskDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TaskDTO" nillable="true" type="tns:TaskDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTaskDTO" nillable="true" type="tns:ArrayOfTaskDTO" />
+  <xs:complexType name="TaskDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ContestCollection" nillable="true" type="tns:ArrayOfContestDTO" />
+      <xs:element minOccurs="0" name="EnableCheck" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EnableSend" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TaskDTO" nillable="true" type="tns:TaskDTO" />
+  <xs:complexType name="ArrayOfContestDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ContestDTO" nillable="true" type="tns:ContestDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfContestDTO" nillable="true" type="tns:ArrayOfContestDTO" />
+  <xs:complexType name="ContestDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Enabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="MainContestId_IfVirtual" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShortTitle" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContestDTO" nillable="true" type="tns:ContestDTO" />
+  <xs:complexType name="TaskExDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Author" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Checkers" nillable="true" type="tns:ArrayOfCheckerDTO" />
+      <xs:element minOccurs="0" name="CodeLimit" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ComplexityId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ContestCollection" nillable="true" type="tns:ArrayOfContestDTO" />
+      <xs:element minOccurs="0" name="CountTestToText" type="xs:int" />
+      <xs:element minOccurs="0" name="DefaultCodeLimit" type="xs:int" />
+      <xs:element minOccurs="0" name="DefaultOutputLimit" type="xs:int" />
+      <xs:element minOccurs="0" name="EnableCheck" type="xs:boolean" />
+      <xs:element minOccurs="0" name="EnableSend" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="MemoryLimit_custom" type="xs:int" />
+      <xs:element minOccurs="0" name="MemoryLimit_dotnet" type="xs:int" />
+      <xs:element minOccurs="0" name="MemoryLimit_javavm" type="xs:int" />
+      <xs:element minOccurs="0" name="MemoryLimit_native" type="xs:int" />
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="OutputLimit" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Statement" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StatementPdf" nillable="true" type="xs:base64Binary" />
+      <xs:element minOccurs="0" name="TaskHasPdfStatement" type="xs:boolean" />
+      <xs:element minOccurs="0" name="TaskSource" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tests" nillable="true" type="tns:ArrayOfTestDTO" />
+      <xs:element minOccurs="0" name="TimeLimit_custom" type="xs:int" />
+      <xs:element minOccurs="0" name="TimeLimit_dotnet" type="xs:int" />
+      <xs:element minOccurs="0" name="TimeLimit_javavm" type="xs:int" />
+      <xs:element minOccurs="0" name="TimeLimit_native" type="xs:int" />
+      <xs:element minOccurs="0" name="TimeSolveProblem" type="xs:int" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TaskExDTO" nillable="true" type="tns:TaskExDTO" />
+  <xs:complexType name="ArrayOfCheckerDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="CheckerDTO" nillable="true" type="tns:CheckerDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfCheckerDTO" nillable="true" type="tns:ArrayOfCheckerDTO" />
+  <xs:complexType name="CheckerDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Code" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CompilerId" type="xs:int" />
+      <xs:element minOccurs="0" name="Enabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CheckerDTO" nillable="true" type="tns:CheckerDTO" />
+  <xs:complexType name="ArrayOfTestDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TestDTO" nillable="true" type="tns:TestDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTestDTO" nillable="true" type="tns:ArrayOfTestDTO" />
+  <xs:complexType name="TestDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Enabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="InputData" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Multitest" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Number" type="xs:int" />
+      <xs:element minOccurs="0" name="PatternData" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TestDTO" nillable="true" type="tns:TestDTO" />
+  <xs:complexType name="ArrayOfTaskComlexity">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TaskComlexity" nillable="true" type="tns:TaskComlexity" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTaskComlexity" nillable="true" type="tns:ArrayOfTaskComlexity" />
+  <xs:complexType name="TaskComlexity">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TaskComlexity" nillable="true" type="tns:TaskComlexity" />
+  <xs:complexType name="ContestExDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AllowPractice" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowShowAllBoard" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowShowBoardForGuest" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowShowComplexityTask" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowShowNumberFailTest" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowShowOnlyActiveUserInBoard" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowShowPointsInBoard" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowShowSubjectTask" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowShowTaskAuthor" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowShowTaskForGuest" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowShowTaskSource" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowShowTimeInBoard" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowShowVirtualUser" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AllowSwowSubmitsInBoardWhenFrozenTime" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AutoRegisterToGroupId" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Compilers" nillable="true" type="tns:ArrayOfCompilerDTO" />
+      <xs:element minOccurs="0" name="ContestTypeId" type="xs:int" />
+      <xs:element minOccurs="0" name="DateEnd" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateFrozen" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateStart" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="DateUnfrozen" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Enabled" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Groups" nillable="true" type="tns:ArrayOfGroupInContestDTO" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="InvididualDateStart" type="xs:boolean" />
+      <xs:element minOccurs="0" name="MainContestId_IfVirtual" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ShortTitle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SponsorText" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Tasks" nillable="true" type="tns:ArrayOfTaskInContestDTO" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="VirtualUserOutOfCompetition" type="xs:boolean" />
+      <xs:element minOccurs="0" name="WellcomeText" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContestExDTO" nillable="true" type="tns:ContestExDTO" />
+  <xs:complexType name="ArrayOfGroupInContestDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="GroupInContestDTO" nillable="true" type="tns:GroupInContestDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfGroupInContestDTO" nillable="true" type="tns:ArrayOfGroupInContestDTO" />
+  <xs:complexType name="GroupInContestDTO">
+    <xs:sequence>
+      <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WCFServices" minOccurs="0" name="GroupType" type="q3:EnumGroupTypeForContest" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="GroupInContestDTO" nillable="true" type="tns:GroupInContestDTO" />
+  <xs:complexType name="ArrayOfTaskInContestDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TaskInContestDTO" nillable="true" type="tns:TaskInContestDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTaskInContestDTO" nillable="true" type="tns:ArrayOfTaskInContestDTO" />
+  <xs:complexType name="TaskInContestDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CostInContest" type="xs:double" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="TaskIdInContest" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TaskInContestDTO" nillable="true" type="tns:TaskInContestDTO" />
+  <xs:complexType name="ArrayOfContestTypeDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="ContestTypeDTO" nillable="true" type="tns:ContestTypeDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfContestTypeDTO" nillable="true" type="tns:ArrayOfContestTypeDTO" />
+  <xs:complexType name="ContestTypeDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AvailableVerdicts" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CheckFirstFail" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ChooseMaximumSubmit" type="xs:boolean" />
+      <xs:element minOccurs="0" name="FormulaForPenaltyPoints" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FormulaForPoints" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="NoFailVerdicts" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Note" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Rulles" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Title" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ContestTypeDTO" nillable="true" type="tns:ContestTypeDTO" />
+  <xs:complexType name="ArrayOfLogForUserDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="LogForUserDTO" nillable="true" type="tns:LogForUserDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLogForUserDTO" nillable="true" type="tns:ArrayOfLogForUserDTO" />
+  <xs:complexType name="LogForUserDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="DateTime" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="LogForUserDTO" nillable="true" type="tns:LogForUserDTO" />
+  <xs:complexType name="ArrayOfSettingDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SettingDTO" nillable="true" type="tns:SettingDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSettingDTO" nillable="true" type="tns:ArrayOfSettingDTO" />
+  <xs:complexType name="SettingDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Description" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Id" type="xs:int" />
+      <xs:element minOccurs="0" name="KeyName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ValueBool" nillable="true" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ValueDateTime" nillable="true" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="ValueGuid" nillable="true" type="ser:guid" />
+      <xs:element minOccurs="0" name="ValueInt" nillable="true" type="xs:int" />
+      <xs:element minOccurs="0" name="ValueReal" nillable="true" type="xs:double" />
+      <xs:element minOccurs="0" name="ValueString" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SettingDTO" nillable="true" type="tns:SettingDTO" />
+  <xs:complexType name="ArrayOfAdminDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AdminDTO" nillable="true" type="tns:AdminDTO" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAdminDTO" nillable="true" type="tns:ArrayOfAdminDTO" />
+  <xs:complexType name="AdminDTO">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AllowAccessToAdminPanel" type="xs:boolean" />
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NotifyNewRegistrations" type="xs:boolean" />
+      <xs:element minOccurs="0" name="email" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AdminDTO" nillable="true" type="tns:AdminDTO" />
+  <xs:complexType name="ArrayOfAccessToPanel">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AccessToPanel" nillable="true" type="tns:AccessToPanel" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAccessToPanel" nillable="true" type="tns:ArrayOfAccessToPanel" />
+  <xs:complexType name="AccessToPanel">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_Admin" type="xs:int" />
+      <xs:element minOccurs="0" name="ID_Button" type="xs:int" />
+      <xs:element minOccurs="0" name="YesNoAccess" type="xs:boolean" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AccessToPanel" nillable="true" type="tns:AccessToPanel" />
+  <xs:complexType name="ArrayOfAccessButtons">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AccessButtons" nillable="true" type="tns:AccessButtons" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAccessButtons" nillable="true" type="tns:ArrayOfAccessButtons" />
+  <xs:complexType name="AccessButtons">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ID" type="xs:int" />
+      <xs:element minOccurs="0" name="NameButton" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AccessButtons" nillable="true" type="tns:AccessButtons" />
+</xs:schema>

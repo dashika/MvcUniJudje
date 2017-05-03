@@ -1,0 +1,194 @@
+﻿@model MvcUniJudje.WebReference.UserExDTO
+
+@{
+    ViewBag.Title = "Редактирование";
+}
+
+
+@*<style type="text/css">
+
+div.________01 {
+	position:absolute;
+	left:0px;
+	top:0px;
+	width:100%;
+}
+
+div.tmp-01 {
+	position:relative;
+	left:0px;
+	top:0px;
+	width:40%;
+}
+
+div.tmp-02 {
+	position:absolute;
+	left:41%;
+	top:50px;
+	width:60%;
+	height:340px;
+}
+
+div.tmp-03 {
+	position:absolute;
+	left:216px;
+	top:0px;
+	width:125px;
+	height:340px;
+}
+
+div.tmp-04 {
+	position:absolute;
+	left:341px;
+	top:0px;
+	width:81px;
+	height:340px;
+}
+
+div.tmp-05 {
+	position:absolute;
+	left:422px;
+	top:0px;
+	width:32px;
+	height:340px;
+}
+
+</style>*@
+
+<h2>Редактирование</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary("", new { @style=" color: red;"})
+    
+    <fieldset style="position:relative; left:3%; width:94%; "  >
+        <legend>Информация о пользователе: </legend>
+        <div>
+            @Html.HiddenFor(model => model.BlockedTo)
+
+        <div class="editor-label">
+            @Html.Label("ФИО : ")
+        </div>
+        <div class="editor-field">
+            @if (Html.ValidationSummary().ToString().Contains("ФИО"))
+             {
+                @Html.TextBoxFor(model => model.Name, new { @class = "border-color-red" })
+             }
+            else
+            {
+                @Html.TextBoxFor(model => model.Name, new { @class = "border-color-darken" })
+             }
+        </div>
+
+        <div class="editor-label">
+            @Html.Label("Логин")
+        </div>
+        <div class="editor-field">
+            @if (Html.ValidationSummary().ToString().Contains("логин"))
+             {
+                @Html.TextBoxFor(model => model.Login, new { @class = "border-color-red" })
+             }
+            else
+            {
+                @Html.TextBoxFor(model => model.Login, new { @class = "border-color-darken" })
+             }
+        </div>
+
+        <div class="editor-label">
+            @Html.Label("Электронная почта : ")
+        </div>
+        <div class="editor-field">
+            @if (Html.ValidationSummary().ToString().Contains("Email"))
+             {
+                @Html.TextBoxFor(model => model.Email, new { @class = "border-color-red" })
+             }
+            else
+            {
+                @Html.TextBoxFor(model => model.Email, new { @class = "border-color-darken" }) 
+             }
+        </div>
+         
+            <div class="editor-field">
+            @Html.Label("Подписаться на рассылку : ")
+            @Html.EditorFor(model => model.SendNotifications)
+        </div>
+
+        <div class="editor-field">
+               @Html.Label("Электронная почта подтверждена :")  @Html.EditorFor(model => model.EmailConfirmed)
+            <br />
+               @Html.ActionLink("Отправить подтверждение", "SendConfirm", new {id=Model.Id})
+        </div>
+
+        <div class="editor-label">
+            @Html.Label("Учебное заведение : ")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Institution)
+        </div>
+     
+        <div class="editor-label">
+            @Html.Label("Класс\\курс\\группа : ")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClassCourseGroup)
+        </div>
+       
+        <div class="editor-label">
+            @Html.Label("Адрес : ")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Address)
+        </div>
+
+              <div class="editor-label">
+            @Html.Label("Телефон : ")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Phone)
+        </div>
+
+                <div class="editor-label">
+            @Html.Label("Неудачных попыток входа : ")
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(model => model.LoginFailCount, new  {@readonly = "readonly" })
+        </div>
+
+        <div class="editor-label">
+            @Html.Label("Заметки : ")
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Note)
+        </div>
+
+            </div>
+ 
+@*        <div class="tmp-02">
+            @{int count = Model.Groups.Count();}
+             <select id="ListWithUsers" name="ListWithUsers"  multiple="multiple" style="width: 90%;">
+             @foreach (var str in Model.Groups)
+             {
+                <option>
+                    @String.Format(Convert.ToString(++count) + ".")
+                    @str.Title .(Id =  @str.Id)
+                    @Environment.NewLine           
+                </option>
+             }
+        </select>         
+        </div>*@
+
+        <br />
+
+        <p>
+            <input type="submit" value="Сохранить" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Вернуться назад", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

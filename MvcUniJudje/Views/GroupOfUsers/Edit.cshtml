@@ -1,0 +1,165 @@
+﻿@model MvcUniJudje.WebReference.GroupDTO
+
+@{
+    ViewBag.Title = "Редактировать";
+}
+
+
+<style type="text/css">
+
+
+div.tmp-01 {
+	position:absolute;
+	left:3%;
+	width:40%;
+    height:500px;
+}
+
+div.tmp-02 {
+	position:relative;
+	left:50%;
+	width:40%;
+    height:500px;
+}
+
+
+
+</style>
+
+
+@*<style type="text/css">
+    label {
+        display: inline-block;
+        width: 30%;
+    }
+
+    div.02 {
+        position: absolute;
+        left: 10px;
+        top: 1%;
+        width: 30%;
+    }
+
+    div.03 {
+        position: relative;
+        left: 30%;
+        top: 1%;
+        width: 60%;
+    }
+</style>*@
+
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <fieldset style="left:3%; width:94%;">
+        <legend><h2>Редактировать группу</h2></legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.Label("Название")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Title)
+        </div>
+        <br />
+        <br />
+        @{
+           MvcUniJudje.Models.Login log = new MvcUniJudje.Models.Login();
+         using (var client = new MvcUniJudje.WebReference.ServiceForAdmin())
+                {
+                    MvcUniJudje.WebReference.GroupDTO SelectGroup = client.GetGroupInfo(Session["session_key"].ToString(), Model.Id, true);
+                    MvcUniJudje.WebReference.UserDTO[] UDTO = client.GetAllUserInGroup(Session["session_key"].ToString(), SelectGroup.Id, true);
+               MvcUniJudje.WebReference.UserDTO[] UDTOout = client.GetAllUserOutGroup(Session["session_key"].ToString(), SelectGroup.Id, true);      
+                    int count = 0;
+            
+                                    <div class="tmp-01">
+                                         <h2>В группе : </h2>
+                                        <div style="overflow-y:scroll; max-height:400px;" >
+                                        <table >
+                                            <tr>
+                                                <th>
+                                                  @Html.DisplayName(" № ")
+                                                </th>
+                                                <th>@Html.DisplayName("Извлечь")</th>
+                                                <th>
+                                                    @Html.DisplayName("ID")
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayName("Имя")
+                                                </th>
+                                            </tr>
+                                            @foreach (var c in UDTO)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @{count++;}
+                                                        @Html.TextBoxFor(m => count, null, new { @readonly = "readonly", @style = "font-size:small; max-width:30px;", @class = "border-color-white" })
+                                                    </td>
+                                                    <td> @Html.CheckBox(c.Id.ToString())</td>
+                                                    <td>
+                                                        @Html.TextBoxFor(m => c.Id, null, new { @readonly = "readonly", @style = "font-size:small; max-width:30px;", @class = "border-color-white" })
+                                                    </td>
+                                                    <td>
+                                                        @Html.TextBoxFor(m => c.Name, null, new { @readonly = "readonly", @style = "font-size:small", @class = "border-color-white" })
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </table>
+                                        </div>
+                                        </div>
+
+             <div class="tmp-02">
+                  <h2>Вне группы : </h2>
+                  <div style="overflow-y:scroll; max-height:400px;">
+                                        <table >
+                                            <tr>
+                                                <th>
+                                                  @Html.DisplayName(" № ")
+                                                </th>
+                                                <th>@Html.DisplayName("Добавить")</th>
+                                                <th>
+                                                    @Html.DisplayName("ID")
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayName("Имя")
+                                                </th>
+                                            </tr>
+                                            @{count = 0;}
+                                            @foreach (var c in UDTOout)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @{count++;}
+                                                        @Html.TextBoxFor(m => count, null, new { @readonly = "readonly", @style = "font-size:small; max-width:30px;", @class = "border-color-white" })
+                                                    </td>
+                                                    <td> @Html.CheckBox(c.Id.ToString())</td>
+                                                    <td>
+                                                        @Html.TextBoxFor(m => c.Id, null, new { @readonly = "readonly", @style = "font-size:small; max-width:30px;", @class = "border-color-white" })
+                                                    </td>
+                                                    <td>
+                                                        @Html.TextBoxFor(m => c.Name, null, new { @readonly = "readonly", @style = "font-size:small", @class = "border-color-white" })
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </table>
+                      </div>
+                                        </div>
+        }
+        }
+
+        <p>
+            <input type="submit" value="Сохранить" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Вернуться назад", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

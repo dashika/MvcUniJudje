@@ -1,0 +1,56 @@
+﻿@model List<MvcUniJudje.Models.User>
+
+@{
+    ViewBag.Title = "Разблокировать";
+}
+
+@using (Html.BeginForm())
+{
+    <fieldset style="background-color:white">
+        <legend>Разблокировать пользователей</legend>
+        <table>
+            <tr>
+                <th>
+                    @Html.DisplayName("ID")
+                </th>
+                <th>
+                    @Html.DisplayName("Логин")
+                </th>
+                <th>
+                    @Html.DisplayName("ФИО")
+                </th>
+                <th>
+                    @Html.DisplayName("Дата блокировки")
+                </th>
+                <th>
+                    @Html.DisplayName("Дата регистрации")
+                </th>
+                <th></th>
+            </tr>
+
+             @for (int i = 0; i < Model.Count; i++)
+            {
+                <tr>
+                    <td>
+                        @Html.TextBoxFor(m => m[i].ID, new { @readonly = "readonly", @class = "border-color-white", @style = "width:25px;" })
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m[i].Login, new { @readonly = "readonly", @class = "border-color-white" })
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m[i].Name, new { @readonly = "readonly", @class = "border-color-white" })
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m[i].Date, new { @readonly = "readonly", @class = "border-color-white" })
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m[i].DateRegistration, new { @readonly = "readonly", @class = "border-color-white" })
+                    </td>
+                </tr>
+            }
+
+        </table>
+        <input type="submit" name="unBlock" value="Разблокировать" />
+    </fieldset>
+    @Html.ActionLink("Вернуться назад", "Index")
+}

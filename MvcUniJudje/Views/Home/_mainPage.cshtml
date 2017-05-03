@@ -1,0 +1,168 @@
+﻿@{
+    List<string> str = new List<string>();
+    List<string> ButName = new List<string>();
+ 
+    using (var client = new MvcUniJudje.WebReference.ServiceForAdmin())
+    {
+        MvcUniJudje.WebReference.AdminDTO admin = client.GetCollection(Session["session_key"].ToString(), Session["name"].ToString());
+            MvcUniJudje.WebReference.AccessToPanel[] ATP = client.GetCollectionAccess(Session["session_key"].ToString(), admin.ID, true);
+            MvcUniJudje.WebReference.AccessButtons[] AB = client.GetCollectionButtons(Session["session_key"].ToString());
+
+            foreach (var name in AB)
+            {
+                str.Add(name.NameButton.Trim());
+            }
+
+            Int16 count = 0;
+
+            foreach (var atp in ATP)
+            {
+                if (atp.YesNoAccess == true)
+                {
+                    for (int i = 0; i < AB.Length; i++)
+                    {
+                        if (AB[i].ID == atp.ID_Button)
+                        {
+                            ButName.Add(AB[i].NameButton.Trim());
+                            count++;
+                            break;
+                        }
+                    }
+                }
+            }
+        }
+}
+
+
+
+
+
+<div class="grid" style="position: inherit; top: 10px; left: 10px;">
+    @if ( (ButName.IndexOf(str[0])) >= 0  ){
+    <a href="@Url.Content("~/User/Index/")">
+        <div class="tile double bg-color-green">
+            <div class="tile-content">
+                <h1><u><b>Пользователи </b></u></h1>
+                <p>
+                    Работа со списком пользователей.
+            <ul>
+                <li>Просмотр, редактирование, удаление, создание.</li>
+                <li>Перемещение по группам, блокировка пользователей. </li>
+            </ul>
+                </p>
+            </div>
+        </div>
+    </a>
+    }
+
+        @if ( (ButName.IndexOf(str[1])) >= 0  ){            
+               <a href="@Url.Content("~/Compiler/Index/")">
+    <div class="tile double bg-color-blue">
+        <div class="tile-content">
+            <h1><u><b>Компиляторы </b></u></h1>
+            <p>
+                Работа с перечнем компиляторов.
+            <ul>
+                <li>Просмотр, редактирование, удаление, создание.</li>
+            </ul>
+            </p>
+        </div>
+    </div>
+                   </a>
+        }
+            
+        @if ( (ButName.IndexOf(str[2])) >= 0  ){            
+               <a href="@Url.Content("~/Submit/Index/")">
+    <div class="tile double bg-color-green">
+        <div class="tile-content">
+            <h1><u><b>Сабмиты </b></u></h1>
+            <p>
+                Работа с решениями.
+            <ul>
+                <li>Просмотр.</li>
+                <li>Выставление флагов перепроверки.</li>
+                <li>Удаление.</li>
+            </ul>
+            </p>
+        </div>
+    </div>
+                   </a>
+        }
+
+        @if ( (ButName.IndexOf(str[3])) >= 0  ){
+    <div class="tile double bg-color-red">
+        <div class="tile-content">
+            <h1><u><b>Задачи </b></u></h1>
+            <p>
+                Работа со списком задач.
+           <ul>
+               <li>Просмотр, редактирование, удаление, создание.</li>
+               <li>Загрузка условий.</li>
+           </ul>
+            </p>
+        </div>
+    </div>
+        }
+            
+        @if ( (ButName.IndexOf(str[4])) >= 0  ){
+    <div class="tile double bg-color-red">
+        <div class="tile-content">
+            <h1><u><b>Контесты </b></u></h1>
+            <p>
+                Работа с перечнем соревнований.
+           <ul>
+               <li>Просмотр, редактирование, удаление, создание.</li>
+               <li>Редактирование перечня задач, групп, компилторов, текста приветствия...</li>
+           </ul>
+            </p>
+        </div>
+    </div>
+        }
+            
+        @if ( (ButName.IndexOf(str[5])) >= 0  ){
+               <a href="@Url.Content("~/Administrator/Index/")">
+    <div class="tile double bg-color-green">
+        <div class="tile-content">
+            <h1><u><b>Администраторы </b></u></h1>
+            <p>
+                Работа со списком администраторов.
+           <ul>
+               <li>Просмотр, редактирование, удаление, создание.</li>
+               <li>Разрешение доступа и выдача пароля.</li>
+           </ul>
+            </p>
+        </div>
+    </div>
+                   </a>
+        }
+
+        @if ( (ButName.IndexOf(str[9])) >= 0  ){           
+               <a href="@Url.Content("~/GroupOfUsers/Index/")">
+    <div class="tile double bg-color-green">
+        <div class="tile-content">
+            <h1><u><b>Группы пользователей </b></u></h1>
+            <p>
+                Работа с группами.
+           <ul>
+               <li>Просмотр, редактирование, удаление, создание.</li>
+               <li>Миграция пользователя в группах.</li>
+           </ul>
+        </div>
+    </div>
+                   </a>
+        }
+
+        @if ( (ButName.IndexOf(str[6])) >= 0  ){
+    <div class="tile  bg-color-darken">
+        <div class="tile-content">
+            <h5>Настройки</h5>
+            <p>
+                Просмотр последних действий в системе.
+            </p>
+        </div>
+    </div>
+        }
+            
+</div>
+
+

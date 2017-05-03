@@ -1,0 +1,56 @@
+﻿@model List<MvcUniJudje.Models.User>
+
+@{
+    ViewBag.Title = "Блокировать";
+}
+
+
+@using (Html.BeginForm())
+{
+        @Html.ValidationSummary("", new { @style=" color: red;"})
+    <fieldset>
+    <legend>Блокировать пользователей</legend>
+        
+       Блокировать до : <input type="datetime-local" name="DateRegist" />
+
+        <table>
+    <tr>
+        <th style="width:3%">
+            Id
+        </th>
+        <th>
+            ФИО
+        </th>
+        <th>
+            Логин
+        </th>
+        <th>
+            Дата регистрации
+        </th>
+        <th></th>
+    </tr>
+
+    @for (int i = 0; i < Model.Count; i++)
+    {   
+        <tr>   
+            <td> 
+  @Html.TextBoxFor(m => m[i].ID, new { @readonly = "readonly", @class = "border-color-white" })
+             </td> 
+            <td> 
+   @Html.TextBoxFor(m => m[i].Name, new { @readonly = "readonly", @class = "border-color-white" })
+               </td> 
+        <td> 
+   @Html.TextBoxFor(m => m[i].Login, new { @readonly = "readonly", @class = "border-color-white" })
+              </td> 
+            <td>
+ @Html.TextBoxFor(m => m[i].DateRegistration, new { @readonly = "readonly", @class = "border-color-white" })
+               </td> 
+            </tr>  
+    }
+            </table>
+    <input type="submit" value="Подтвердить"/>
+        </fieldset>
+    
+        @Html.ActionLink("Вернуться назад", "Index")
+}
+

@@ -1,0 +1,120 @@
+﻿@model IEnumerable<MvcUniJudje.WebReference.GroupDTO>
+
+@{
+    ViewBag.Title = "Группы пользователей";
+    MvcUniJudje.Models.Login log = new MvcUniJudje.Models.Login();
+}
+
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+    <fieldset style="left: 3%; width: 94%;">
+        <legend>
+            <h2>Группы пользователей</h2>
+        </legend>
+  
+            <input type="submit" name="Create" value="Создать" />
+            <input type="submit" name="Delete" value="Удалить" />
+            <input type="submit" name="EditUsersInGroups" value="Редактировать состав" disabled />
+       
+        <table>
+            <tr>
+                <th></th>
+                <th>
+                    @Html.DisplayName("ID")
+                </th>
+                <th>
+                    @Html.DisplayName("Название")
+                </th>
+                <th>
+                    @Html.DisplayName("Участие в контестах")
+                </th>
+                <th>
+                    @Html.DisplayName("Состав группы")
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.CheckBox(item.Id.ToString())
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Id)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
+                    @{
+                using (var client = new MvcUniJudje.WebReference.ServiceForAdmin())
+                {
+                    MvcUniJudje.WebReference.GroupDTO SelectGroup = client.GetGroupInfo(Session["session_key"].ToString(), item.Id, true);
+                    MvcUniJudje.WebReference.UserDTO[] UDTO = client.GetAllUserInGroup(Session["session_key"].ToString(), SelectGroup.Id, true);
+                    var contest = client.GetContestsInGroup(Session["session_key"].ToString(), item.Id, true);
+                    int count = 0;
+                        <td>
+                            @foreach (var c in contest)
+                            {
+                                @Html.DisplayFor(m => c);
+                                <br />
+                            }
+                        </td>
+        
+        
+                        <td>
+                            <ul class="accordion span10" data-role="accordion" style="width: inherit;">
+                                <li>
+                                    <a href="#"></a>
+                                    <div style="overflow-y:scroll; max-height:500px;">
+
+                                        <table >
+                                            <tr>
+                                                <th>
+                                                          @Html.DisplayName(" № ")
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayName("ID")
+                                                </th>
+                                                <th>
+                                                    @Html.DisplayName("Имя")
+                                                </th>
+                                            </tr>
+                                            @foreach (var c in UDTO)
+                                            {
+                                                <tr>
+                                                    <td>
+                                                        @{count++;}
+                                                        @Html.TextBoxFor(m => count, null, new { @readonly = "readonly", @style = "font-size:small; max-width:30px;", @class = "border-color-white" })
+                                                    </td>
+                                                    <td>
+                                                        @Html.TextBoxFor(m => c.Id, null, new { @readonly = "readonly", @style = "font-size:small; max-width:30px;", @class = "border-color-white" })
+                                                    </td>
+                                                    <td>
+                                                        @Html.TextBoxFor(m => c.Name, null, new { @readonly = "readonly", @style = "font-size:small", @class = "border-color-white" })
+                                                    </td>
+                                                </tr>
+                                            }
+                                        </table>
+                                    </div>
+                                </li>
+                            </ul>
+
+                        </td>
+        
+                }
+                    }
+
+                    <td style="width: 20px;">
+                        @Html.ActionLink("Редактировать", "Edit", new { id = item.Id }) 
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+    </fieldset>
+    
+}

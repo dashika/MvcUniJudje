@@ -1,0 +1,60 @@
+﻿
+<ul class="accordion  span10" data-role="accordion">
+    <li>
+        <a href="#">Общая информация о пользователе</a>
+        <div>
+            <label>ID : </label>
+            <input name="ID" type="text" disabled size="5" />
+
+            <br />
+            <label>ФИО : </label>
+            <input name="FIO" type="text" />
+            <br />
+            <label>Логин :</label>
+            <input name="Login" type="text" />
+            <br />
+            <label>E-mail :</label>
+            @Html.TextBox("FIO")
+            <br />
+            E-mail подтвержден? @Html.CheckBox("Podtverjden")
+            <br />
+            <button>Отправить</button>
+            <br />
+            E-mail рассылка :  @Html.CheckBox("hfhfd")
+            <br />
+            <label>Ученое заведение : </label>
+            @Html.TextBox("FIO")
+            <br />
+            <label>Класс/курс/группа : </label>
+            @Html.TextBox("FIO")
+            <br />
+            <label>Адрес : </label>
+            @Html.TextBox("FIO")
+            <br />
+            <label>Телефон : </label>
+            @Html.TextBox("FIO")
+            <br />
+            Дата регистрации : 
+        <div class="input-control text datepicker" data-role="datepicker" data-param-lang="ru">
+            <input type="text" />
+        </div>
+            <br />
+            <label>Последняя активность : </label>
+            <input type="text" disabled />
+            <br />
+            <label>Неуд.попыток входа : </label>
+            <input type="text" />
+            <br />
+            <label>Заблокирован до : </label>
+            @Html.CheckBox("fkn")
+            <div class="input-control text datepicker" data-role="datepicker" data-param-lang="ru">
+                <input type="text" />
+            </div>
+            <label>Заметка : </label>
+            @Html.TextArea("dd")
+        </div>
+    </li>
+
+
+
+</ul>

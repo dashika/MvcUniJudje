@@ -1,0 +1,51 @@
+﻿@model List<MvcUniJudje.WebReference.AdminDTO>
+
+@{
+    ViewBag.Title = "Удаление";
+}
+
+<h2>Удаление</h2>
+
+<h3>Вы действительно желаете удалить ?</h3>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+<fieldset>
+    <legend>Удаляемые адиистраторы</legend>
+
+<table>
+    <tr>
+        <th style="width:3%">
+            ID
+        </th>
+        <th>
+            @Html.DisplayName("Логин")
+        </th>
+                <th>
+            @Html.DisplayName("Электронная почта")
+        </th>
+
+        <th></th>
+    </tr>
+
+    @for (int i = 0; i < Model.Count; i++)
+    {   
+        <tr>   
+            <td> 
+  @Html.TextBoxFor(m => m[i].ID, new { @readonly = "readonly", @class = "border-color-white"})
+             </td> 
+        <td> 
+   @Html.TextBoxFor(m => m[i].Login, new { @readonly = "readonly",@class = "border-color-white" })
+              </td> 
+            <td>
+ @Html.TextBoxFor(m => m[i].email, new { @readonly = "readonly", @class = "border-color-white" })
+               </td> 
+            </tr>  
+    }
+
+</table>
+  <p>
+        <input type="submit" value="Удалить" /> 
+            </p>
+        </fieldset>
+        @Html.ActionLink("Вернуться назад", "Index")
+}

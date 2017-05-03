@@ -1,0 +1,84 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+
+    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/modern.css")
+    @Styles.Render("~/Content/modern-responsive.css")
+    @Styles.Render("~/Content/site.css")
+    @Styles.Render("~/Content/theme-dark.css")
+    @Styles.Render("~/Content/prettify.css")
+
+
+    @Scripts.Render("~/Scripts/assert/jquery-1.9.0.min.js")
+    @Scripts.Render("~/Scripts/assert/jquery.mousewheel.min.js")
+    @Scripts.Render("~/Scripts/assert/moment.js")
+    @Scripts.Render("~/Scripts/assert/moment_langs.js")
+
+
+    @Scripts.Render("~/Scripts/dropdown.js")
+    @Scripts.Render("~/Scripts/accordion.js")
+    @Scripts.Render("~/Scripts/buttonset.js")
+    @Scripts.Render("~/Scripts/carousel.js")
+    @Scripts.Render("~/Scripts/dialog.js")
+    @Scripts.Render("~/Scripts/input-control.js")
+    @Scripts.Render("~/Scripts/rating.js")
+    @Scripts.Render("~/Scripts/calendar.js")
+    @Scripts.Render("~/Scripts/tile-drag.js")
+    @Scripts.Render("~/Scripts/tile-slider.js")
+    @Scripts.Render("~/Scripts/slider.js")
+
+    <style type="text/css">
+</style>
+
+</head>
+
+<body class="metrouicss">
+    <div class="page" style="width:90%">
+        <div class="nav-bar bg-color-greenDark">
+            <div class="nav-bar-inner padding10">
+                <span class="pull-menu">  </span>
+                 <a  href="~/Home/Index"><span class="element brand">
+            UniJudge <small> версия @{ MvcUniJudje.WebReference.ServiceForAdmin client = new MvcUniJudje.WebReference.ServiceForAdmin(); int versions; bool b = true; client.GetVersionAPI(out versions, out b);} @versions</small>
+        </span></a>       
+                <div class="divider"> </div>
+                <ul class="menu">
+                    <li><a  href="~/Home/Index">Главная</a></li>
+                    <li data-role="dropdown">
+                        <a href="#">Рабочие области</a>
+                             @Html.Partial("_AdminMenu")
+                    </li>
+                    <li data-role="dropdown">
+                         <a href="#">Пользователь</a>
+                        @Html.Partial("_LoginPartial")
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="page" style="width:90%" >
+
+        @RenderBody()
+        @Scripts.Render("~/bundles/jquery")
+        @RenderSection("scripts", required: false)
+
+    </div>
+
+    <div class="page" style="z-index: 0; width:90%">
+        <div class="nav-bar bg-color-greenDark">
+            <div class="nav-bar-inner padding5"> 
+                <span class="element">2013,  &copy; by <a class="fg-color-white" href="@Url.Content("~//Home/SendEmail/")">UniJudge</a>
+                </span>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,2036 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="ServiceForAdmin" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://127.0.0.1/API/ServiceForAdmin.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://127.0.0.1/API/ServiceForAdmin.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://127.0.0.1/API/ServiceForAdmin.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" />
+      <xsd:import schemaLocation="http://127.0.0.1/API/ServiceForAdmin.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xsd:import schemaLocation="http://127.0.0.1/API/ServiceForAdmin.svc?xsd=xsd4" namespace="http://schemas.datacontract.org/2004/07/WCFServices" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IServiceForAdmin_LoginUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:LoginUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_LoginUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:LoginUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetVersionAPI_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetVersionAPI" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetVersionAPI_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetVersionAPIResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_CheckDatabaseExist_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckDatabaseExist" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_CheckDatabaseExist_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckDatabaseExistResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetDictionaries_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDictionaries" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetDictionaries_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDictionariesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetUsers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsers" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetUsers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUsersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetUserPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserPassword" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetUserPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetUserPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GenerateNewUserPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateNewUserPassword" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GenerateNewUserPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateNewUserPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_CreateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_CreateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_CreateOneUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateOneUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_CreateOneUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateOneUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_BlockGroupUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:BlockGroupUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_BlockGroupUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:BlockGroupUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UnBlockGroupUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UnBlockGroupUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UnBlockGroupUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UnBlockGroupUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_DeleteGroupUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGroupUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_DeleteGroupUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGroupUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UpdateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UpdateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_WebUpdateUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:WebUpdateUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_WebUpdateUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:WebUpdateUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_DeleteUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_DeleteUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UpdateGroupsForUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGroupsForUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UpdateGroupsForUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGroupsForUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_SendPasswordOnEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendPasswordOnEmail" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_SendPasswordOnEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendPasswordOnEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_ValidateUserEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateUserEmail" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_ValidateUserEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateUserEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_ChangePasswordUsingUserEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePasswordUsingUserEmail" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_ChangePasswordUsingUserEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ChangePasswordUsingUserEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetAllGroups_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllGroups" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetAllGroups_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllGroupsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetAllUserInGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUserInGroup" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetAllUserInGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUserInGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetAllUserOutGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUserOutGroup" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetAllUserOutGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllUserOutGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetGroupInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupInfo" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetGroupInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetGroupInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetContestsInGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetContestsInGroup" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetContestsInGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetContestsInGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_CreateGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateGroup" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_CreateGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UpdateGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGroup" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UpdateGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_WebUpdateGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:WebUpdateGroup" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_WebUpdateGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:WebUpdateGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_DeleteGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGroup" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_DeleteGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_AddInGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddInGroup" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_AddInGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddInGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_DeleteOutFromGroup_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOutFromGroup" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_DeleteOutFromGroup_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteOutFromGroupResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetCompilers_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompilers" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetCompilers_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompilersResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetCompiler_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompiler" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetCompiler_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCompilerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_InsertOrUpdateCompiler_InputMessage">
+    <wsdl:part name="parameters" element="tns:InsertOrUpdateCompiler" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_InsertOrUpdateCompiler_OutputMessage">
+    <wsdl:part name="parameters" element="tns:InsertOrUpdateCompilerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_DeleteCompiler_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCompiler" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_DeleteCompiler_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCompilerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetSubmits_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubmits" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetSubmits_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubmitsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_WebGetSubmits_InputMessage">
+    <wsdl:part name="parameters" element="tns:WebGetSubmits" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_WebGetSubmits_OutputMessage">
+    <wsdl:part name="parameters" element="tns:WebGetSubmitsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetSubmitUpdate_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubmitUpdate" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetSubmitUpdate_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubmitUpdateResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_SubmitShowCode_InputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitShowCode" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_SubmitShowCode_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitShowCodeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_SubmitShowAdminLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitShowAdminLog" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_SubmitShowAdminLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitShowAdminLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_SubmitShowUserLog_InputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitShowUserLog" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_SubmitShowUserLog_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SubmitShowUserLogResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_RejudgeSubmit_InputMessage">
+    <wsdl:part name="parameters" element="tns:RejudgeSubmit" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_RejudgeSubmit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RejudgeSubmitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_DeleteSubmit_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSubmit" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_DeleteSubmit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSubmitResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetTasks_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTasks" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetTasks_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTasksResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTask" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetTasksComlexity_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTasksComlexity" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetTasksComlexity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTasksComlexityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetTasksSubject_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTasksSubject" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetTasksSubject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTasksSubjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetTaskStatement_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaskStatement" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetTaskStatement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTaskStatementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_CreateTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateTask" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_CreateTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetSubject_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubject" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetSubject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSubjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UpdateTaskStatement_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTaskStatement" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UpdateTaskStatement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTaskStatementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UpdateSubjectComlexity_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSubjectComlexity" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UpdateSubjectComlexity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSubjectComlexityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UpdateTaskPdfStatement_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTaskPdfStatement" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UpdateTaskPdfStatement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTaskPdfStatementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_DeleteTaskPdfStatement_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTaskPdfStatement" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_DeleteTaskPdfStatement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTaskPdfStatementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_DownloadTaskPdfStatement_InputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadTaskPdfStatement" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_DownloadTaskPdfStatement_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DownloadTaskPdfStatementResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UpdateTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTask" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UpdateTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_DeleteTask_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTask" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_DeleteTask_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTaskResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UpdateTaskEx_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTaskEx" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UpdateTaskEx_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTaskExResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_AddNewSubject_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewSubject" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_AddNewSubject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewSubjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_AddNewComlexity_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewComlexity" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_AddNewComlexity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddNewComlexityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_DeleteSubject_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSubject" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_DeleteSubject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSubjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_DeleteComlexity_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteComlexity" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_DeleteComlexity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteComlexityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UpdateNewSubject_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateNewSubject" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UpdateNewSubject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateNewSubjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UpdateNewComlexity_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateNewComlexity" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UpdateNewComlexity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateNewComlexityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetIDSubject_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIDSubject" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetIDSubject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIDSubjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetIDComlexity_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetIDComlexity" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetIDComlexity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetIDComlexityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetTitleSubject_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTitleSubject" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetTitleSubject_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTitleSubjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetTitleComlexity_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTitleComlexity" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetTitleComlexity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTitleComlexityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetTest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetTest" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetTest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_CreateTest_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateTest" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_CreateTest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UpdateTest_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTest" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UpdateTest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_DeleteTest_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTest" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_DeleteTest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteTestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetChecker_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetChecker" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetChecker_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCheckerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_CreateChecker_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateChecker" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_CreateChecker_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateCheckerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UpdateChecker_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateChecker" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UpdateChecker_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCheckerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_DeleteChecker_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteChecker" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_DeleteChecker_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteCheckerResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetContests_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetContests" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetContests_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetContestsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetContest_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetContest" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetContest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetContestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UpdateContest_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateContest" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UpdateContest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateContestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UpdateGroupsForContest_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGroupsForContest" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UpdateGroupsForContest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateGroupsForContestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UpdateCompilersForContest_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCompilersForContest" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UpdateCompilersForContest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateCompilersForContestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UpdateTasksForContest_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTasksForContest" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UpdateTasksForContest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateTasksForContestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_CreateContest_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateContest" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_CreateContest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateContestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_DeleteContest_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteContest" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_DeleteContest_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteContestResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetWellcomeText_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWellcomeText" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetWellcomeText_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWellcomeTextResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UpdateWellcomeText_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateWellcomeText" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UpdateWellcomeText_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateWellcomeTextResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetSponsorText_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSponsorText" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetSponsorText_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSponsorTextResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UpdateSponsorText_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSponsorText" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UpdateSponsorText_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateSponsorTextResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetContestTypes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetContestTypes" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetContestTypes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetContestTypesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetLogForUser_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLogForUser" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetLogForUser_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLogForUserResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetAllSettings_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSettings" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetAllSettings_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAllSettingsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_DeleteSetting_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSetting" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_DeleteSetting_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteSettingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_AddOrUpdateSetting_InputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateSetting" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_AddOrUpdateSetting_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AddOrUpdateSettingResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetAdmins_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdmins" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetAdmins_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdminsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetCollection_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCollection" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetCollection_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCollectionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetAdmin_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdmin" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetAdmin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetCollectionAccess_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCollectionAccess" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetCollectionAccess_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCollectionAccessResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetCollectionButtons_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCollectionButtons" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetCollectionButtons_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCollectionButtonsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GenerateNewAdminPassword_InputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateNewAdminPassword" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GenerateNewAdminPassword_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GenerateNewAdminPasswordResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetNewPasswordForAdminAndSendByEmail_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewPasswordForAdminAndSendByEmail" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_GetNewPasswordForAdminAndSendByEmail_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNewPasswordForAdminAndSendByEmailResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_CreateNewPasswordUseble_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewPasswordUseble" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_CreateNewPasswordUseble_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateNewPasswordUsebleResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_CreateAdmin_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAdmin" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_CreateAdmin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UpdateAdmin_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAdmin" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_UpdateAdmin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_WebUpdateAdmin_InputMessage">
+    <wsdl:part name="parameters" element="tns:WebUpdateAdmin" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_WebUpdateAdmin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:WebUpdateAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_DeleteAdmin_InputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAdmin" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_DeleteAdmin_OutputMessage">
+    <wsdl:part name="parameters" element="tns:DeleteAdminResponse" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_AccessAdmins_InputMessage">
+    <wsdl:part name="parameters" element="tns:AccessAdmins" />
+  </wsdl:message>
+  <wsdl:message name="IServiceForAdmin_AccessAdmins_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AccessAdminsResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IServiceForAdmin">
+    <wsdl:operation name="LoginUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/LoginUser" message="tns:IServiceForAdmin_LoginUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/LoginUserResponse" message="tns:IServiceForAdmin_LoginUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetVersionAPI">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GetVersionAPI" message="tns:IServiceForAdmin_GetVersionAPI_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GetVersionAPIResponse" message="tns:IServiceForAdmin_GetVersionAPI_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckDatabaseExist">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/CheckDatabaseExist" message="tns:IServiceForAdmin_CheckDatabaseExist_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/CheckDatabaseExistResponse" message="tns:IServiceForAdmin_CheckDatabaseExist_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDictionaries">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GetDictionaries" message="tns:IServiceForAdmin_GetDictionaries_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GetDictionariesResponse" message="tns:IServiceForAdmin_GetDictionaries_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GetUsers" message="tns:IServiceForAdmin_GetUsers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GetUsersResponse" message="tns:IServiceForAdmin_GetUsers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GetUser" message="tns:IServiceForAdmin_GetUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GetUserResponse" message="tns:IServiceForAdmin_GetUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetUserPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GetUserPassword" message="tns:IServiceForAdmin_GetUserPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GetUserPasswordResponse" message="tns:IServiceForAdmin_GetUserPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateNewUserPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GenerateNewUserPassword" message="tns:IServiceForAdmin_GenerateNewUserPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GenerateNewUserPasswordResponse" message="tns:IServiceForAdmin_GenerateNewUserPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/CreateUser" message="tns:IServiceForAdmin_CreateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/CreateUserResponse" message="tns:IServiceForAdmin_CreateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateOneUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/CreateOneUser" message="tns:IServiceForAdmin_CreateOneUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/CreateOneUserResponse" message="tns:IServiceForAdmin_CreateOneUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="BlockGroupUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/BlockGroupUser" message="tns:IServiceForAdmin_BlockGroupUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/BlockGroupUserResponse" message="tns:IServiceForAdmin_BlockGroupUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UnBlockGroupUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/UnBlockGroupUser" message="tns:IServiceForAdmin_UnBlockGroupUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/UnBlockGroupUserResponse" message="tns:IServiceForAdmin_UnBlockGroupUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGroupUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/DeleteGroupUser" message="tns:IServiceForAdmin_DeleteGroupUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/DeleteGroupUserResponse" message="tns:IServiceForAdmin_DeleteGroupUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/UpdateUser" message="tns:IServiceForAdmin_UpdateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/UpdateUserResponse" message="tns:IServiceForAdmin_UpdateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="WebUpdateUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/WebUpdateUser" message="tns:IServiceForAdmin_WebUpdateUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/WebUpdateUserResponse" message="tns:IServiceForAdmin_WebUpdateUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/DeleteUser" message="tns:IServiceForAdmin_DeleteUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/DeleteUserResponse" message="tns:IServiceForAdmin_DeleteUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGroupsForUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/UpdateGroupsForUser" message="tns:IServiceForAdmin_UpdateGroupsForUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/UpdateGroupsForUserResponse" message="tns:IServiceForAdmin_UpdateGroupsForUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendPasswordOnEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/SendPasswordOnEmail" message="tns:IServiceForAdmin_SendPasswordOnEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/SendPasswordOnEmailResponse" message="tns:IServiceForAdmin_SendPasswordOnEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUserEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/ValidateUserEmail" message="tns:IServiceForAdmin_ValidateUserEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/ValidateUserEmailResponse" message="tns:IServiceForAdmin_ValidateUserEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ChangePasswordUsingUserEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/ChangePasswordUsingUserEmail" message="tns:IServiceForAdmin_ChangePasswordUsingUserEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/ChangePasswordUsingUserEmailResponse" message="tns:IServiceForAdmin_ChangePasswordUsingUserEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGroups">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GetAllGroups" message="tns:IServiceForAdmin_GetAllGroups_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GetAllGroupsResponse" message="tns:IServiceForAdmin_GetAllGroups_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUserInGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GetAllUserInGroup" message="tns:IServiceForAdmin_GetAllUserInGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GetAllUserInGroupResponse" message="tns:IServiceForAdmin_GetAllUserInGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUserOutGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GetAllUserOutGroup" message="tns:IServiceForAdmin_GetAllUserOutGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GetAllUserOutGroupResponse" message="tns:IServiceForAdmin_GetAllUserOutGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GetGroupInfo" message="tns:IServiceForAdmin_GetGroupInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GetGroupInfoResponse" message="tns:IServiceForAdmin_GetGroupInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContestsInGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GetContestsInGroup" message="tns:IServiceForAdmin_GetContestsInGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GetContestsInGroupResponse" message="tns:IServiceForAdmin_GetContestsInGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/CreateGroup" message="tns:IServiceForAdmin_CreateGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/CreateGroupResponse" message="tns:IServiceForAdmin_CreateGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/UpdateGroup" message="tns:IServiceForAdmin_UpdateGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/UpdateGroupResponse" message="tns:IServiceForAdmin_UpdateGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="WebUpdateGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/WebUpdateGroup" message="tns:IServiceForAdmin_WebUpdateGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/WebUpdateGroupResponse" message="tns:IServiceForAdmin_WebUpdateGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/DeleteGroup" message="tns:IServiceForAdmin_DeleteGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/DeleteGroupResponse" message="tns:IServiceForAdmin_DeleteGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddInGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/AddInGroup" message="tns:IServiceForAdmin_AddInGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/AddInGroupResponse" message="tns:IServiceForAdmin_AddInGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOutFromGroup">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/DeleteOutFromGroup" message="tns:IServiceForAdmin_DeleteOutFromGroup_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/DeleteOutFromGroupResponse" message="tns:IServiceForAdmin_DeleteOutFromGroup_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompilers">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GetCompilers" message="tns:IServiceForAdmin_GetCompilers_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GetCompilersResponse" message="tns:IServiceForAdmin_GetCompilers_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCompiler">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GetCompiler" message="tns:IServiceForAdmin_GetCompiler_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GetCompilerResponse" message="tns:IServiceForAdmin_GetCompiler_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertOrUpdateCompiler">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/InsertOrUpdateCompiler" message="tns:IServiceForAdmin_InsertOrUpdateCompiler_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/InsertOrUpdateCompilerResponse" message="tns:IServiceForAdmin_InsertOrUpdateCompiler_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCompiler">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/DeleteCompiler" message="tns:IServiceForAdmin_DeleteCompiler_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/DeleteCompilerResponse" message="tns:IServiceForAdmin_DeleteCompiler_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSubmits">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GetSubmits" message="tns:IServiceForAdmin_GetSubmits_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GetSubmitsResponse" message="tns:IServiceForAdmin_GetSubmits_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="WebGetSubmits">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/WebGetSubmits" message="tns:IServiceForAdmin_WebGetSubmits_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/WebGetSubmitsResponse" message="tns:IServiceForAdmin_WebGetSubmits_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSubmitUpdate">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GetSubmitUpdate" message="tns:IServiceForAdmin_GetSubmitUpdate_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GetSubmitUpdateResponse" message="tns:IServiceForAdmin_GetSubmitUpdate_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitShowCode">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/SubmitShowCode" message="tns:IServiceForAdmin_SubmitShowCode_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/SubmitShowCodeResponse" message="tns:IServiceForAdmin_SubmitShowCode_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitShowAdminLog">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/SubmitShowAdminLog" message="tns:IServiceForAdmin_SubmitShowAdminLog_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/SubmitShowAdminLogResponse" message="tns:IServiceForAdmin_SubmitShowAdminLog_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SubmitShowUserLog">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/SubmitShowUserLog" message="tns:IServiceForAdmin_SubmitShowUserLog_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/SubmitShowUserLogResponse" message="tns:IServiceForAdmin_SubmitShowUserLog_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RejudgeSubmit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/RejudgeSubmit" message="tns:IServiceForAdmin_RejudgeSubmit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/RejudgeSubmitResponse" message="tns:IServiceForAdmin_RejudgeSubmit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSubmit">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/DeleteSubmit" message="tns:IServiceForAdmin_DeleteSubmit_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/DeleteSubmitResponse" message="tns:IServiceForAdmin_DeleteSubmit_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTasks">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GetTasks" message="tns:IServiceForAdmin_GetTasks_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GetTasksResponse" message="tns:IServiceForAdmin_GetTasks_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GetTask" message="tns:IServiceForAdmin_GetTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GetTaskResponse" message="tns:IServiceForAdmin_GetTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTasksComlexity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GetTasksComlexity" message="tns:IServiceForAdmin_GetTasksComlexity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GetTasksComlexityResponse" message="tns:IServiceForAdmin_GetTasksComlexity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTasksSubject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GetTasksSubject" message="tns:IServiceForAdmin_GetTasksSubject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GetTasksSubjectResponse" message="tns:IServiceForAdmin_GetTasksSubject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskStatement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GetTaskStatement" message="tns:IServiceForAdmin_GetTaskStatement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GetTaskStatementResponse" message="tns:IServiceForAdmin_GetTaskStatement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/CreateTask" message="tns:IServiceForAdmin_CreateTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/CreateTaskResponse" message="tns:IServiceForAdmin_CreateTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSubject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GetSubject" message="tns:IServiceForAdmin_GetSubject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GetSubjectResponse" message="tns:IServiceForAdmin_GetSubject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaskStatement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/UpdateTaskStatement" message="tns:IServiceForAdmin_UpdateTaskStatement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/UpdateTaskStatementResponse" message="tns:IServiceForAdmin_UpdateTaskStatement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSubjectComlexity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/UpdateSubjectComlexity" message="tns:IServiceForAdmin_UpdateSubjectComlexity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/UpdateSubjectComlexityResponse" message="tns:IServiceForAdmin_UpdateSubjectComlexity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaskPdfStatement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/UpdateTaskPdfStatement" message="tns:IServiceForAdmin_UpdateTaskPdfStatement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/UpdateTaskPdfStatementResponse" message="tns:IServiceForAdmin_UpdateTaskPdfStatement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTaskPdfStatement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/DeleteTaskPdfStatement" message="tns:IServiceForAdmin_DeleteTaskPdfStatement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/DeleteTaskPdfStatementResponse" message="tns:IServiceForAdmin_DeleteTaskPdfStatement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DownloadTaskPdfStatement">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/DownloadTaskPdfStatement" message="tns:IServiceForAdmin_DownloadTaskPdfStatement_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/DownloadTaskPdfStatementResponse" message="tns:IServiceForAdmin_DownloadTaskPdfStatement_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/UpdateTask" message="tns:IServiceForAdmin_UpdateTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/UpdateTaskResponse" message="tns:IServiceForAdmin_UpdateTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTask">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/DeleteTask" message="tns:IServiceForAdmin_DeleteTask_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/DeleteTaskResponse" message="tns:IServiceForAdmin_DeleteTask_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaskEx">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/UpdateTaskEx" message="tns:IServiceForAdmin_UpdateTaskEx_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/UpdateTaskExResponse" message="tns:IServiceForAdmin_UpdateTaskEx_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewSubject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/AddNewSubject" message="tns:IServiceForAdmin_AddNewSubject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/AddNewSubjectResponse" message="tns:IServiceForAdmin_AddNewSubject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddNewComlexity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/AddNewComlexity" message="tns:IServiceForAdmin_AddNewComlexity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/AddNewComlexityResponse" message="tns:IServiceForAdmin_AddNewComlexity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSubject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/DeleteSubject" message="tns:IServiceForAdmin_DeleteSubject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/DeleteSubjectResponse" message="tns:IServiceForAdmin_DeleteSubject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteComlexity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/DeleteComlexity" message="tns:IServiceForAdmin_DeleteComlexity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/DeleteComlexityResponse" message="tns:IServiceForAdmin_DeleteComlexity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateNewSubject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/UpdateNewSubject" message="tns:IServiceForAdmin_UpdateNewSubject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/UpdateNewSubjectResponse" message="tns:IServiceForAdmin_UpdateNewSubject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateNewComlexity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/UpdateNewComlexity" message="tns:IServiceForAdmin_UpdateNewComlexity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/UpdateNewComlexityResponse" message="tns:IServiceForAdmin_UpdateNewComlexity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIDSubject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GetIDSubject" message="tns:IServiceForAdmin_GetIDSubject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GetIDSubjectResponse" message="tns:IServiceForAdmin_GetIDSubject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetIDComlexity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GetIDComlexity" message="tns:IServiceForAdmin_GetIDComlexity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GetIDComlexityResponse" message="tns:IServiceForAdmin_GetIDComlexity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTitleSubject">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GetTitleSubject" message="tns:IServiceForAdmin_GetTitleSubject_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GetTitleSubjectResponse" message="tns:IServiceForAdmin_GetTitleSubject_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTitleComlexity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GetTitleComlexity" message="tns:IServiceForAdmin_GetTitleComlexity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GetTitleComlexityResponse" message="tns:IServiceForAdmin_GetTitleComlexity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetTest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GetTest" message="tns:IServiceForAdmin_GetTest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GetTestResponse" message="tns:IServiceForAdmin_GetTest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateTest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/CreateTest" message="tns:IServiceForAdmin_CreateTest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/CreateTestResponse" message="tns:IServiceForAdmin_CreateTest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/UpdateTest" message="tns:IServiceForAdmin_UpdateTest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/UpdateTestResponse" message="tns:IServiceForAdmin_UpdateTest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/DeleteTest" message="tns:IServiceForAdmin_DeleteTest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/DeleteTestResponse" message="tns:IServiceForAdmin_DeleteTest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetChecker">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GetChecker" message="tns:IServiceForAdmin_GetChecker_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GetCheckerResponse" message="tns:IServiceForAdmin_GetChecker_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateChecker">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/CreateChecker" message="tns:IServiceForAdmin_CreateChecker_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/CreateCheckerResponse" message="tns:IServiceForAdmin_CreateChecker_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateChecker">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/UpdateChecker" message="tns:IServiceForAdmin_UpdateChecker_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/UpdateCheckerResponse" message="tns:IServiceForAdmin_UpdateChecker_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteChecker">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/DeleteChecker" message="tns:IServiceForAdmin_DeleteChecker_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/DeleteCheckerResponse" message="tns:IServiceForAdmin_DeleteChecker_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContests">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GetContests" message="tns:IServiceForAdmin_GetContests_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GetContestsResponse" message="tns:IServiceForAdmin_GetContests_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GetContest" message="tns:IServiceForAdmin_GetContest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GetContestResponse" message="tns:IServiceForAdmin_GetContest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/UpdateContest" message="tns:IServiceForAdmin_UpdateContest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/UpdateContestResponse" message="tns:IServiceForAdmin_UpdateContest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGroupsForContest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/UpdateGroupsForContest" message="tns:IServiceForAdmin_UpdateGroupsForContest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/UpdateGroupsForContestResponse" message="tns:IServiceForAdmin_UpdateGroupsForContest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCompilersForContest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/UpdateCompilersForContest" message="tns:IServiceForAdmin_UpdateCompilersForContest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/UpdateCompilersForContestResponse" message="tns:IServiceForAdmin_UpdateCompilersForContest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTasksForContest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/UpdateTasksForContest" message="tns:IServiceForAdmin_UpdateTasksForContest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/UpdateTasksForContestResponse" message="tns:IServiceForAdmin_UpdateTasksForContest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateContest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/CreateContest" message="tns:IServiceForAdmin_CreateContest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/CreateContestResponse" message="tns:IServiceForAdmin_CreateContest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContest">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/DeleteContest" message="tns:IServiceForAdmin_DeleteContest_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/DeleteContestResponse" message="tns:IServiceForAdmin_DeleteContest_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWellcomeText">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GetWellcomeText" message="tns:IServiceForAdmin_GetWellcomeText_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GetWellcomeTextResponse" message="tns:IServiceForAdmin_GetWellcomeText_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWellcomeText">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/UpdateWellcomeText" message="tns:IServiceForAdmin_UpdateWellcomeText_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/UpdateWellcomeTextResponse" message="tns:IServiceForAdmin_UpdateWellcomeText_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetSponsorText">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GetSponsorText" message="tns:IServiceForAdmin_GetSponsorText_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GetSponsorTextResponse" message="tns:IServiceForAdmin_GetSponsorText_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSponsorText">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/UpdateSponsorText" message="tns:IServiceForAdmin_UpdateSponsorText_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/UpdateSponsorTextResponse" message="tns:IServiceForAdmin_UpdateSponsorText_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContestTypes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GetContestTypes" message="tns:IServiceForAdmin_GetContestTypes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GetContestTypesResponse" message="tns:IServiceForAdmin_GetContestTypes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLogForUser">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GetLogForUser" message="tns:IServiceForAdmin_GetLogForUser_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GetLogForUserResponse" message="tns:IServiceForAdmin_GetLogForUser_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSettings">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GetAllSettings" message="tns:IServiceForAdmin_GetAllSettings_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GetAllSettingsResponse" message="tns:IServiceForAdmin_GetAllSettings_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSetting">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/DeleteSetting" message="tns:IServiceForAdmin_DeleteSetting_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/DeleteSettingResponse" message="tns:IServiceForAdmin_DeleteSetting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateSetting">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/AddOrUpdateSetting" message="tns:IServiceForAdmin_AddOrUpdateSetting_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/AddOrUpdateSettingResponse" message="tns:IServiceForAdmin_AddOrUpdateSetting_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAdmins">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GetAdmins" message="tns:IServiceForAdmin_GetAdmins_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GetAdminsResponse" message="tns:IServiceForAdmin_GetAdmins_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCollection">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GetCollection" message="tns:IServiceForAdmin_GetCollection_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GetCollectionResponse" message="tns:IServiceForAdmin_GetCollection_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetAdmin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GetAdmin" message="tns:IServiceForAdmin_GetAdmin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GetAdminResponse" message="tns:IServiceForAdmin_GetAdmin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCollectionAccess">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GetCollectionAccess" message="tns:IServiceForAdmin_GetCollectionAccess_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GetCollectionAccessResponse" message="tns:IServiceForAdmin_GetCollectionAccess_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCollectionButtons">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GetCollectionButtons" message="tns:IServiceForAdmin_GetCollectionButtons_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GetCollectionButtonsResponse" message="tns:IServiceForAdmin_GetCollectionButtons_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GenerateNewAdminPassword">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GenerateNewAdminPassword" message="tns:IServiceForAdmin_GenerateNewAdminPassword_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GenerateNewAdminPasswordResponse" message="tns:IServiceForAdmin_GenerateNewAdminPassword_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNewPasswordForAdminAndSendByEmail">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/GetNewPasswordForAdminAndSendByEmail" message="tns:IServiceForAdmin_GetNewPasswordForAdminAndSendByEmail_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/GetNewPasswordForAdminAndSendByEmailResponse" message="tns:IServiceForAdmin_GetNewPasswordForAdminAndSendByEmail_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewPasswordUseble">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/CreateNewPasswordUseble" message="tns:IServiceForAdmin_CreateNewPasswordUseble_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/CreateNewPasswordUsebleResponse" message="tns:IServiceForAdmin_CreateNewPasswordUseble_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateAdmin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/CreateAdmin" message="tns:IServiceForAdmin_CreateAdmin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/CreateAdminResponse" message="tns:IServiceForAdmin_CreateAdmin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAdmin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/UpdateAdmin" message="tns:IServiceForAdmin_UpdateAdmin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/UpdateAdminResponse" message="tns:IServiceForAdmin_UpdateAdmin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="WebUpdateAdmin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/WebUpdateAdmin" message="tns:IServiceForAdmin_WebUpdateAdmin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/WebUpdateAdminResponse" message="tns:IServiceForAdmin_WebUpdateAdmin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAdmin">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/DeleteAdmin" message="tns:IServiceForAdmin_DeleteAdmin_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/DeleteAdminResponse" message="tns:IServiceForAdmin_DeleteAdmin_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AccessAdmins">
+      <wsdl:input wsaw:Action="http://tempuri.org/IServiceForAdmin/AccessAdmins" message="tns:IServiceForAdmin_AccessAdmins_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IServiceForAdmin/AccessAdminsResponse" message="tns:IServiceForAdmin_AccessAdmins_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IServiceForAdmin" type="tns:IServiceForAdmin">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="LoginUser">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/LoginUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetVersionAPI">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GetVersionAPI" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CheckDatabaseExist">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/CheckDatabaseExist" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDictionaries">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GetDictionaries" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUsers">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GetUsers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUser">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GetUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetUserPassword">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GetUserPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateNewUserPassword">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GenerateNewUserPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateUser">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/CreateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateOneUser">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/CreateOneUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="BlockGroupUser">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/BlockGroupUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UnBlockGroupUser">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/UnBlockGroupUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGroupUser">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/DeleteGroupUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateUser">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/UpdateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebUpdateUser">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/WebUpdateUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteUser">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/DeleteUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGroupsForUser">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/UpdateGroupsForUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SendPasswordOnEmail">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/SendPasswordOnEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateUserEmail">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/ValidateUserEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ChangePasswordUsingUserEmail">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/ChangePasswordUsingUserEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllGroups">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GetAllGroups" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUserInGroup">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GetAllUserInGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllUserOutGroup">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GetAllUserOutGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetGroupInfo">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GetGroupInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContestsInGroup">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GetContestsInGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateGroup">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/CreateGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGroup">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/UpdateGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebUpdateGroup">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/WebUpdateGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteGroup">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/DeleteGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddInGroup">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/AddInGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteOutFromGroup">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/DeleteOutFromGroup" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompilers">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GetCompilers" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCompiler">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GetCompiler" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertOrUpdateCompiler">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/InsertOrUpdateCompiler" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteCompiler">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/DeleteCompiler" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubmits">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GetSubmits" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebGetSubmits">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/WebGetSubmits" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubmitUpdate">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GetSubmitUpdate" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitShowCode">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/SubmitShowCode" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitShowAdminLog">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/SubmitShowAdminLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SubmitShowUserLog">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/SubmitShowUserLog" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RejudgeSubmit">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/RejudgeSubmit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSubmit">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/DeleteSubmit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTasks">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GetTasks" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTask">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GetTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTasksComlexity">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GetTasksComlexity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTasksSubject">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GetTasksSubject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTaskStatement">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GetTaskStatement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTask">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/CreateTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSubject">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GetSubject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaskStatement">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/UpdateTaskStatement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSubjectComlexity">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/UpdateSubjectComlexity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaskPdfStatement">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/UpdateTaskPdfStatement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTaskPdfStatement">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/DeleteTaskPdfStatement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DownloadTaskPdfStatement">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/DownloadTaskPdfStatement" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTask">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/UpdateTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTask">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/DeleteTask" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTaskEx">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/UpdateTaskEx" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewSubject">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/AddNewSubject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddNewComlexity">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/AddNewComlexity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSubject">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/DeleteSubject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteComlexity">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/DeleteComlexity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateNewSubject">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/UpdateNewSubject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateNewComlexity">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/UpdateNewComlexity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIDSubject">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GetIDSubject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetIDComlexity">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GetIDComlexity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTitleSubject">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GetTitleSubject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTitleComlexity">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GetTitleComlexity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetTest">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GetTest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateTest">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/CreateTest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTest">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/UpdateTest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteTest">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/DeleteTest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetChecker">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GetChecker" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateChecker">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/CreateChecker" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateChecker">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/UpdateChecker" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteChecker">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/DeleteChecker" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContests">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GetContests" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContest">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GetContest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateContest">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/UpdateContest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateGroupsForContest">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/UpdateGroupsForContest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateCompilersForContest">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/UpdateCompilersForContest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateTasksForContest">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/UpdateTasksForContest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateContest">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/CreateContest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteContest">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/DeleteContest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWellcomeText">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GetWellcomeText" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateWellcomeText">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/UpdateWellcomeText" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSponsorText">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GetSponsorText" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateSponsorText">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/UpdateSponsorText" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContestTypes">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GetContestTypes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetLogForUser">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GetLogForUser" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAllSettings">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GetAllSettings" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteSetting">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/DeleteSetting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AddOrUpdateSetting">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/AddOrUpdateSetting" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdmins">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GetAdmins" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCollection">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GetCollection" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetAdmin">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GetAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCollectionAccess">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GetCollectionAccess" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetCollectionButtons">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GetCollectionButtons" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GenerateNewAdminPassword">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GenerateNewAdminPassword" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNewPasswordForAdminAndSendByEmail">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/GetNewPasswordForAdminAndSendByEmail" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateNewPasswordUseble">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/CreateNewPasswordUseble" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateAdmin">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/CreateAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAdmin">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/UpdateAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="WebUpdateAdmin">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/WebUpdateAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="DeleteAdmin">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/DeleteAdmin" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="AccessAdmins">
+      <soap:operation soapAction="http://tempuri.org/IServiceForAdmin/AccessAdmins" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ServiceForAdmin">
+    <wsdl:port name="BasicHttpBinding_IServiceForAdmin" binding="tns:BasicHttpBinding_IServiceForAdmin">
+      <soap:address location="http://127.0.0.1/API/ServiceForAdmin.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

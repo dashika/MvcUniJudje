@@ -1,0 +1,111 @@
+﻿@model IEnumerable<MvcUniJudje.Models.User>
+
+@{
+    ViewBag.Title = "Пользователи";
+}
+
+
+
+@*@{Html.RenderAction("GenreMenu", "Home");}*@
+
+
+<link href="@Url.Content("~/Content/Gridmvc.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~/Content/Grid/gridmvc.datepicker.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~/Content/Grid/gridmvc.datepicker.min.css")" rel="stylesheet" type="text/css" />
+
+<script src="@Url.Content("~/Scripts/gridmvc.min.js")" type="text/javascript"> </script>
+<script src="@Url.Content("~/Scripts/Grid/bootstrap-datepicker.js")" type="text/javascript"> </script>
+
+@using GridMvc.Html
+
+
+@*@helper CustomRenderingOfColumn(String order)
+{
+    if (order.Customer.IsVip)
+    {
+    <text>Yes</text>
+    }
+    else
+    {
+    <text>No</text>
+    }
+}*@
+
+@*<script>
+    $(function () {
+        pageGrids.UserGrid.onRowSelect(function (e) {
+            //alert(e.row.ID);
+        });
+    });
+</script>*@
+
+@{
+    MvcUniJudje.Models.Login log = new MvcUniJudje.Models.Login();
+    var client = new MvcUniJudje.WebReference.ServiceForAdmin();
+    MvcUniJudje.WebReference.UserExDTO userInfo;
+    
+}
+
+@using (Html.BeginForm())
+{
+       
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary("", new { @style=" color: red;"})
+
+    <fieldset style="background-color:white">
+        <legend>Пользователи</legend>
+        <div style="min-height:71px; ">
+        <div style="position:fixed;  width:88%; background-color:white; border-color:black; border:groove; ">
+        <input type="submit" name="BlockTo" value="Заблокировать" />
+        <input type="submit" name="UnBlockTo" value="Разблокировать" />
+        <input type="submit" name="Create" value="Создать" />
+        <input type="submit" id="deleteButton" name="Delete" value="Удалить" />
+        <input type="submit" name="Group" value="Добавить в группу" />
+            </div>
+            </div>
+        @Html.Grid(Model).Named("UserGrid").Columns(columns =>
+{
+    columns.Add().Encoded(false).Sanitized(false).SetWidth(30).RenderValueAs(model => Html.CheckBox(model.ID.ToString()));
+    columns.Add(model => model.ID).Titled("ID");
+    columns.Add(model => model.Login).Titled("Логин");
+    columns.Add(model => model.Name).Titled("ФИО");
+    columns.Add(model => model.DateRegistration, "OrderCustomDate").Titled("Дата регистрации");
+    columns.Add().Encoded(false).Sanitized(false).SetWidth(30).RenderValueAs(d =>
+         @<b>
+             <ul class="accordion span10" data-role="accordion" style="width: inherit;">
+                 <li>
+                     <a href="#"></a>
+                     <div>
+                         @{
+                             userInfo = client.GetUser(Session["session_key"].ToString(), d.ID, true); 
+                         }
+                         @Html.Label("Email", "E-mail : " + userInfo.Email, new { style = "width: 100%;" })
+                         <br />
+                         @Html.Label("Phone", "Телефон : " + userInfo.Phone, new { style = "width: 100%;" })
+                         <br />
+                         @Html.Label("School", "Учебое заведение : " + userInfo.Institution, new { style = "width: 100%;" })
+                         <br />
+                         @Html.Label("ClassGroupCourse", "Класс/группа/курс : " + userInfo.ClassCourseGroup, new { style = "width: 100%;" })
+                         <br />
+                         @{
+                             if (d.Locking)
+                             {
+                             @Html.Label("Lock", "Заблокирован до : " + d.Date.ToString());
+                             }
+                         }
+                     </div>
+                 </li>
+             </ul>
+         </b>
+         );
+    columns.Add().Encoded(false).Sanitized(false).SetWidth(30).RenderValueAs(d =>
+                   @<b>
+                       @Html.ActionLink("Редактировать", "Edit", new { id = d.ID })
+                       @Html.ActionLink("Пароль", "Password", new { id = d.ID, name = d.Login })
+                   </b>);
+}).Sortable().Filterable().WithMultipleFilters().SetRowCssClasses(d => d.Locking ? "bg-color-red" : "").WithPaging(100)
+
+        <br />
+    </fieldset>
+}
+

@@ -1,0 +1,112 @@
+﻿@model MvcUniJudje.WebReference.UserExDTO
+
+@{
+    ViewBag.Title = "Создание нового пользователя";
+}
+
+<h2>Создание нового пользователя</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <fieldset style="position: relative; left: 3%; width: 80%;">
+        <legend>Информация о пользователе: </legend>
+
+        <div class="editor-label">
+            @Html.Label("ФИО : ")
+        </div>
+        <div class="editor-field">
+            @if (Html.ValidationSummary().ToString().Contains("ФИО"))
+             {
+                @Html.TextBoxFor(model => model.Name, new { @class = "border-color-red" })
+             }
+            else
+            {
+                @Html.TextBoxFor(model => model.Name, new { @class = "border-color-darken" })
+             }
+        </div>
+
+        <div class="editor-label">
+            @Html.Label("Логин")
+        </div>
+        <div class="editor-field">
+            @if (Html.ValidationSummary().ToString().Contains("логин"))
+             {
+                @Html.TextBoxFor(model => model.Login, new { @class = "border-color-red" })
+             }
+            else
+            {
+                @Html.TextBoxFor(model => model.Login, new { @class = "border-color-darken" })
+             }
+        </div>
+
+        <div class="editor-label">
+            @Html.Label("Электронная почта : ")
+        </div>
+        <div class="editor-field">
+            @if (Html.ValidationSummary().ToString().Contains("Email"))
+             {
+                @Html.TextBoxFor(model => model.Email, new { @class = "border-color-red" })
+             }
+            else
+            {
+                @Html.TextBoxFor(model => model.Email, new { @class = "border-color-darken" }) 
+             }
+        </div>
+
+        <div class="editor-field">
+            @Html.Label("Подписаться на рассылку : ")
+            @Html.EditorFor(model => model.SendNotifications)
+        </div>
+        <br />
+
+        <div class="editor-label">
+            @Html.Label("Учебное заведение : ")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Institution)
+        </div>
+
+        <div class="editor-label">
+            @Html.Label("Класс\\курс\\группа : ")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.ClassCourseGroup)
+        </div>
+
+        <div class="editor-label">
+            @Html.Label("Адрес : ")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Address)
+        </div>
+
+        <div class="editor-label">
+            @Html.Label("Телефон : ")
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Phone)
+        </div>
+
+        <div class="editor-label">
+            @Html.Label("Заметки : ")
+        </div>
+        <div class="editor-field">
+            @Html.TextAreaFor(model => model.Note)
+        </div>
+
+        <br />
+        <p>
+            <input type="submit" value="Создать" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Вернуться назад", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

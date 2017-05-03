@@ -1,0 +1,1524 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://tempuri.org/" elementFormDefault="qualified" targetNamespace="http://tempuri.org/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://127.0.0.1/API/ServiceForAdmin.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" />
+  <xs:import schemaLocation="http://127.0.0.1/API/ServiceForAdmin.svc?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:element name="LoginUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="Login" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="LoginUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="LoginUserResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVersionAPI">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetVersionAPIResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetVersionAPIResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckDatabaseExist">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CheckDatabaseExistResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CheckDatabaseExistResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDictionaries">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="IncludeContests" type="xs:boolean" />
+        <xs:element minOccurs="0" name="IncludeTasks" type="xs:boolean" />
+        <xs:element minOccurs="0" name="IncludeUsers" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetDictionariesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="GetDictionariesResult" nillable="true" type="q1:DictionaryCollectionDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUsers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUsersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q2="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="GetUsersResult" nillable="true" type="q2:ArrayOfUserDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="UserId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q3="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="GetUserResult" nillable="true" type="q3:UserExDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserPassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="UserId" type="xs:int" />
+        <xs:element minOccurs="0" name="key" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetUserPasswordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetUserPasswordResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerateNewUserPassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="UserId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerateNewUserPasswordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GenerateNewUserPasswordResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="CreateUserResult" nillable="true" type="q4:UserExDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateOneUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="Data" nillable="true" type="q5:UserExDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateOneUserResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BlockGroupUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element xmlns:q6="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="id" nillable="true" type="q6:ArrayOfint" />
+        <xs:element minOccurs="0" name="date" type="xs:dateTime" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="BlockGroupUserResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnBlockGroupUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element xmlns:q7="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="id" nillable="true" type="q7:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UnBlockGroupUserResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteGroupUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element xmlns:q8="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="id" nillable="true" type="q8:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteGroupUserResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element xmlns:q9="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="Data" nillable="true" type="q9:UserExDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateUserResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WebUpdateUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element xmlns:q10="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="Data" nillable="true" type="q10:UserExDTO" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element minOccurs="0" name="failCount" type="xs:int" />
+        <xs:element minOccurs="0" name="sentConf" type="xs:boolean" />
+        <xs:element minOccurs="0" name="emailConf" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WebUpdateUserResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="UserId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteUserResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateGroupsForUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="UserId" type="xs:int" />
+        <xs:element xmlns:q11="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="newGroupIdCollecton" nillable="true" type="q11:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateGroupsForUserResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendPasswordOnEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="pass" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SendPasswordOnEmailResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateUserEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="UserId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ValidateUserEmailResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePasswordUsingUserEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="UserId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="ChangePasswordUsingUserEmailResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllGroups">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllGroupsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q12="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="GetAllGroupsResult" nillable="true" type="q12:ArrayOfGroupDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllUserInGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllUserInGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q13="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="GetAllUserInGroupResult" nillable="true" type="q13:ArrayOfUserDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllUserOutGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllUserOutGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q14="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="GetAllUserOutGroupResult" nillable="true" type="q14:ArrayOfUserDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGroupInfo">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetGroupInfoResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q15="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="GetGroupInfoResult" nillable="true" type="q15:GroupDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetContestsInGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="Id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetContestsInGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q16="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="GetContestsInGroupResult" nillable="true" type="q16:ArrayOfstring" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q17="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="CreateGroupResult" nillable="true" type="q17:GroupDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element xmlns:q18="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="Group" nillable="true" type="q18:GroupDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateGroupResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WebUpdateGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GroupTitle" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WebUpdateGroupResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GroupID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteGroupResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddInGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GroupID" type="xs:int" />
+        <xs:element minOccurs="0" name="UserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddInGroupResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q19="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="AddInGroupResult" nillable="true" type="q19:UserDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteOutFromGroup">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GroupID" type="xs:int" />
+        <xs:element minOccurs="0" name="UserID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteOutFromGroupResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCompilers">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCompilersResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q20="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="GetCompilersResult" nillable="true" type="q20:ArrayOfCompilerDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCompiler">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CompilerId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCompilerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q21="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="GetCompilerResult" nillable="true" type="q21:CompilerDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertOrUpdateCompiler">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element xmlns:q22="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="Compiler" nillable="true" type="q22:CompilerDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="InsertOrUpdateCompilerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="InsertOrUpdateCompilerResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteCompiler">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CompilerId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteCompilerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteCompilerResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSubmits">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="FilterContestId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="FilterUserId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="FilterTaskId" nillable="true" type="xs:int" />
+        <xs:element minOccurs="0" name="CountOnPage" type="xs:int" />
+        <xs:element minOccurs="0" name="PageNum" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSubmitsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q23="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="GetSubmitsResult" nillable="true" type="q23:ArrayOfSubmitDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WebGetSubmits">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WebGetSubmitsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q24="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="WebGetSubmitsResult" nillable="true" type="q24:ArrayOfSubmitDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSubmitUpdate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element xmlns:q25="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SubmitIdCollection" nillable="true" type="q25:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSubmitUpdateResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q26="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="GetSubmitUpdateResult" nillable="true" type="q26:ArrayOfSubmitDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitShowCode">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SubmitId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitShowCodeResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SubmitShowCodeResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitShowAdminLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SubmitId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitShowAdminLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SubmitShowAdminLogResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitShowUserLog">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="SubmitId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="SubmitShowUserLogResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SubmitShowUserLogResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RejudgeSubmit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element xmlns:q27="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SubmitIdCollection" nillable="true" type="q27:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="RejudgeSubmitResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="RejudgeSubmitResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSubmit">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element xmlns:q28="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="SubmitIdCollection" nillable="true" type="q28:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSubmitResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DeleteSubmitResult" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTasks">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTasksResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q29="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="GetTasksResult" nillable="true" type="q29:ArrayOfTaskDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTask">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TaskId" type="xs:int" />
+        <xs:element minOccurs="0" name="IncludeStatement" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q30="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="GetTaskResult" nillable="true" type="q30:TaskExDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTasksComlexity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTasksComlexityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q31="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="GetTasksComlexityResult" nillable="true" type="q31:ArrayOfTaskComlexity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTasksSubject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTasksSubjectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q32="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="GetTasksSubjectResult" nillable="true" type="q32:ArrayOfTaskComlexity" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskStatement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TaskId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTaskStatementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTaskStatementResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTask">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTaskResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q33="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="CreateTaskResult" nillable="true" type="q33:TaskExDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSubject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSubjectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSubjectResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTaskStatement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TaskId" type="xs:int" />
+        <xs:element minOccurs="0" name="Statement" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTaskStatementResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSubjectComlexity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="IDTask" type="xs:int" />
+        <xs:element minOccurs="0" name="subject" type="xs:int" />
+        <xs:element minOccurs="0" name="Comlexity" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSubjectComlexityResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTaskPdfStatement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TaskId" type="xs:int" />
+        <xs:element minOccurs="0" name="Statement" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTaskPdfStatementResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTaskPdfStatement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TaskId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTaskPdfStatementResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DownloadTaskPdfStatement">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TaskId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DownloadTaskPdfStatementResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="DownloadTaskPdfStatementResult" nillable="true" type="xs:base64Binary" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTask">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element xmlns:q34="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="Task" nillable="true" type="q34:TaskExDTO" />
+        <xs:element minOccurs="0" name="UpdateStatement" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTaskResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTask">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TaskId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTaskResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTaskEx">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element xmlns:q35="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="Task" nillable="true" type="q35:TaskExDTO" />
+        <xs:element xmlns:q36="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="Tests" nillable="true" type="q36:ArrayOfTestDTO" />
+        <xs:element minOccurs="0" name="AppendTests" type="xs:boolean" />
+        <xs:element minOccurs="0" name="UpdateTaskStatement" type="xs:boolean" />
+        <xs:element xmlns:q37="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="Checkers" nillable="true" type="q37:ArrayOfCheckerDTO" />
+        <xs:element minOccurs="0" name="AppendCheckers" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTaskExResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewSubject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewSubjectResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewComlexity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddNewComlexityResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSubject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="IDS" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSubjectResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteComlexity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="IDD" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteComlexityResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateNewSubject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="IDS" type="xs:int" />
+        <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateNewSubjectResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateNewComlexity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="IDD" type="xs:int" />
+        <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateNewComlexityResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetIDSubject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetIDSubjectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetIDSubjectResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetIDComlexity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="title" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetIDComlexityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetIDComlexityResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTitleSubject">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTitleSubjectResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTitleSubjectResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTitleComlexity">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTitleComlexityResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetTitleComlexityResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TestId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetTestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q38="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="GetTestResult" nillable="true" type="q38:TestDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TaskId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateTestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q39="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="CreateTestResult" nillable="true" type="q39:TestDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element xmlns:q40="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="Test" nillable="true" type="q40:TestDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTestResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TestId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteTestResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetChecker">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CheckerId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCheckerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q41="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="GetCheckerResult" nillable="true" type="q41:CheckerDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateChecker">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="TaskId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateCheckerResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q42="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="CreateCheckerResult" nillable="true" type="q42:CheckerDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateChecker">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element xmlns:q43="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="Checker" nillable="true" type="q43:CheckerDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCheckerResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteChecker">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="CheckerId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteCheckerResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetContests">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetContestsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q44="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="GetContestsResult" nillable="true" type="q44:ArrayOfContestDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetContest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ContestId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetContestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q45="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="GetContestResult" nillable="true" type="q45:ContestExDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateContest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element xmlns:q46="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="Contest" nillable="true" type="q46:ContestExDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateContestResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateGroupsForContest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ContestId" type="xs:int" />
+        <xs:element xmlns:q47="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="newGroupCollecton" nillable="true" type="q47:ArrayOfGroupInContestDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateGroupsForContestResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCompilersForContest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ContestId" type="xs:int" />
+        <xs:element xmlns:q48="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="newCompilerIdCollecton" nillable="true" type="q48:ArrayOfint" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateCompilersForContestResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTasksForContest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ContestId" type="xs:int" />
+        <xs:element xmlns:q49="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="newTasksCollecton" nillable="true" type="q49:ArrayOfTaskInContestDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateTasksForContestResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateContest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateContestResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q50="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="CreateContestResult" nillable="true" type="q50:ContestExDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteContest">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ContestId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteContestResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWellcomeText">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ContestId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetWellcomeTextResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetWellcomeTextResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateWellcomeText">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ContestId" type="xs:int" />
+        <xs:element minOccurs="0" name="WellcomeText" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateWellcomeTextResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSponsorText">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ContestId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetSponsorTextResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetSponsorTextResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSponsorText">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ContestId" type="xs:int" />
+        <xs:element minOccurs="0" name="SponsorText" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateSponsorTextResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetContestTypes">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetContestTypesResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q51="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="GetContestTypesResult" nillable="true" type="q51:ArrayOfContestTypeDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLogForUser">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetLogForUserResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q52="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="GetLogForUserResult" nillable="true" type="q52:ArrayOfLogForUserDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllSettings">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAllSettingsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q53="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="GetAllSettingsResult" nillable="true" type="q53:ArrayOfSettingDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSetting">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="settingId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteSettingResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddOrUpdateSetting">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element xmlns:q54="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="setting" nillable="true" type="q54:SettingDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AddOrUpdateSettingResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="AddOrUpdateSettingResult" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdmins">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdminsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q55="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="GetAdminsResult" nillable="true" type="q55:ArrayOfAdminDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCollection">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="str" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCollectionResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q56="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="GetCollectionResult" nillable="true" type="q56:AdminDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdmin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetAdminResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q57="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="GetAdminResult" nillable="true" type="q57:AdminDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCollectionAccess">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="ID" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCollectionAccessResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q58="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="GetCollectionAccessResult" nillable="true" type="q58:ArrayOfAccessToPanel" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCollectionButtons">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetCollectionButtonsResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q59="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="GetCollectionButtonsResult" nillable="true" type="q59:ArrayOfAccessButtons" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerateNewAdminPassword">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AdminId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GenerateNewAdminPasswordResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GenerateNewAdminPasswordResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewPasswordForAdminAndSendByEmail">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element minOccurs="0" name="password" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="GetNewPasswordForAdminAndSendByEmailResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="GetNewPasswordForAdminAndSendByEmailResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateNewPasswordUseble">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AdminId" type="xs:int" />
+        <xs:element minOccurs="0" name="pass" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateNewPasswordUsebleResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="CreateNewPasswordUsebleResult" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateAdmin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="CreateAdminResponse">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element xmlns:q60="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="CreateAdminResult" nillable="true" type="q60:AdminDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAdmin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element xmlns:q61="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="Admin" nillable="true" type="q61:AdminDTO" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="UpdateAdminResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WebUpdateAdmin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element xmlns:q62="http://schemas.datacontract.org/2004/07/WCFServices.ServiceForAdmin.DTO" minOccurs="0" name="Admin" nillable="true" type="q62:AdminDTO" />
+        <xs:element minOccurs="0" name="id" type="xs:int" />
+        <xs:element minOccurs="0" name="Notify" type="xs:boolean" />
+        <xs:element minOccurs="0" name="acess" type="xs:boolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="WebUpdateAdminResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAdmin">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AdminId" type="xs:int" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="DeleteAdminResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AccessAdmins">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" name="SessionKey" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="AdminId" type="xs:int" />
+        <xs:element xmlns:q63="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="access" nillable="true" type="q63:ArrayOfboolean" />
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="AccessAdminsResponse">
+    <xs:complexType>
+      <xs:sequence />
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

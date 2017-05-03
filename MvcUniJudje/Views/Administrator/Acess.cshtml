@@ -1,0 +1,86 @@
+﻿@model List<MvcUniJudje.WebReference.AdminDTO>
+
+@{
+    ViewBag.Title = "Доступ";
+}
+
+<h2>Редактирование прав доступа</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <fieldset style="background-color: white; width: 94%; left: 3%;">
+        <legend>Администраторы, для которых будут сменены права доступа</legend>
+        <table>
+            <tr>
+                <th style="width: 3%">ID
+                </th>
+                <th>
+                    @Html.DisplayName("Логин")
+                </th>
+                <th>
+                    @Html.DisplayName("Электронная почта")
+                </th>
+
+                <th></th>
+            </tr>
+
+            @for (int i = 0; i < Model.Count; i++)
+            {   
+                <tr>
+                    <td>
+                        @Html.TextBoxFor(m => m[i].ID, new { @readonly = "readonly", @class = "border-color-white" })
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m[i].Login, new { @readonly = "readonly", @class = "border-color-white" })
+                    </td>
+                    <td>
+                        @Html.TextBoxFor(m => m[i].email, new { @readonly = "readonly", @class = "border-color-white" })
+                    </td>
+                </tr>  
+            }
+
+        </table>
+        @{
+            MvcUniJudje.Models.Login log = new MvcUniJudje.Models.Login();
+            var client = new MvcUniJudje.WebReference.ServiceForAdmin();
+            var buttons = client.GetCollectionButtons(Session["session_key"].ToString());  
+        }
+        <table style="position: inherit; left: 7%; width: 80%;">
+            <tr>
+                <th>Область
+                </th>
+                <th>Разрешено
+                </th>
+            </tr>
+
+            @foreach (var c in buttons)
+            {
+                <tr>
+                    <td>
+
+                        @Html.TextBoxFor(m => c.NameButton, null, new { @readonly = "readonly", @class = "border-color-white" })
+                    </td>
+                    <td>
+                        @if (Model.Count() != 1)
+                        {
+                            @Html.CheckBox(c.NameButton.Trim())
+                        }
+                        else
+                        {
+                            var access = client.GetCollectionAccess(Session["session_key"].ToString(), Model[0].ID, true);
+                            bool AB = (from cc in access
+                                       where c.ID == cc.ID_Button
+                                       select cc.YesNoAccess).SingleOrDefault();                       
+                            @Html.CheckBox(c.NameButton.Trim(), AB)
+                        }
+                    </td>
+                </tr>
+            }
+        </table>
+        <p>
+            <input type="submit" value="Подтвердить" />
+        </p>
+    </fieldset>
+    @Html.ActionLink("Вернуться назад", "Index")
+}

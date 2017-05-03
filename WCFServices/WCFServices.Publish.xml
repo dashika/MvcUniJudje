@@ -1,0 +1,15 @@
+<publishData>
+  <publishTarget publishUrl="C:\inetpub\wwwroot\">
+    <file relUrl="WCFServices.ServiceForAdmin.ServiceForAdmin.svc" publishTime="10/29/2012 02:55:02" />
+    <file relUrl="WCFServices.ServiceForChecker.ServiceForChecker.svc" publishTime="10/29/2012 02:55:02" />
+    <file relUrl="WCFServices.ServiceForUser.ServiceForUser.svc" publishTime="10/29/2012 02:55:02" />
+    <file relUrl="bin/WCFServices.dll.config" publishTime="09/28/2012 23:30:04" />
+    <file relUrl="Web.config" publishTime="09/28/2012 23:30:04" />
+    <file relUrl="bin/DebugServiceProject.pdb" publishTime="10/28/2012 19:21:19" />
+    <file relUrl="bin/DataModel.dll" publishTime="10/28/2012 19:21:20" />
+    <file relUrl="bin/DataModel.pdb" publishTime="10/28/2012 19:21:20" />
+    <file relUrl="bin/WCFServices.pdb" publishTime="10/29/2012 02:55:00" />
+    <file relUrl="bin/DebugServiceProject.dll" publishTime="10/28/2012 19:21:19" />
+    <file relUrl="bin/WCFServices.dll" publishTime="10/29/2012 02:55:00" />
+  </publishTarget>
+</publishData>

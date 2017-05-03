@@ -1,0 +1,127 @@
+﻿@model IEnumerable<MvcUniJudje.WebReference.SubmitDTO>
+
+@{
+    ViewBag.Title = "Сабмиты";
+}
+
+
+<link href="@Url.Content("~/Content/Gridmvc.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~/Content/Grid/gridmvc.datepicker.css")" rel="stylesheet" type="text/css" />
+<link href="@Url.Content("~/Content/Grid/gridmvc.datepicker.min.css")" rel="stylesheet" type="text/css" />
+
+<script src="@Url.Content("~/Scripts/gridmvc.min.js")" type="text/javascript"> </script>
+<script src="@Url.Content("~/Scripts/Grid/bootstrap-datepicker.js")" type="text/javascript"> </script>
+
+@using GridMvc.Html
+@{
+    MvcUniJudje.Models.Login log = new MvcUniJudje.Models.Login();
+    var client = new MvcUniJudje.WebReference.ServiceForAdmin();
+    //  MvcUniJudje.WebReference.;
+    
+}
+
+@using (Html.BeginForm())
+{
+       
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary()
+
+    <fieldset style="background-color: white">
+        <legend>Полльзователи</legend>
+        <input type="submit" name="Checking" value="Перепроверить" />
+        <input type="submit" id="deleteButton" name="Delete" value="Удалить" />
+
+
+        @Html.Grid(Model).Named("UserGrid").Columns(columns =>
+{
+    columns.Add().Encoded(false).Sanitized(false).SetWidth(30).RenderValueAs(model => Html.CheckBox(model.Id.ToString()));
+    columns.Add(model => model.Id).Titled("ID");
+    columns.Add(model => model.UserName).Titled("Пользователь");
+    columns.Add(model => model.ContestTitle).Titled("Контест");
+    columns.Add(model => model.TaskTitle).Titled("Задача");
+    columns.Add(model => model.DateTimeSend, "OrderCustomDate").Titled("Дата\\время отправки");
+    columns.Add().Encoded(false).Sanitized(false).SetWidth(10).RenderValueAs(d =>
+         @<b>
+             <ul class="accordion span10" data-role="accordion" style="width: inherit; min-width:130px">
+                 <li>
+                     <a href="#"></a>
+                     <div>
+                         @{
+                             MvcUniJudje.WebReference.SubmitDTO SDTO = (from c in Model
+                                                                        where c.Id == d.Id
+                                                                        select c).SingleOrDefault();
+
+                                                                
+                             <br />
+                             if(!SDTO.CompilerShortName.IsEmpty())
+                             {
+                                         <u><b>Язык : </b></u>
+                       @Html.Label(""+ SDTO.CompilerShortName);  
+                         <br />  
+                         } 
+                             if(!SDTO.VerdictDescription.IsEmpty())
+                             {
+                             <u><b>Вердикт :</b></u>
+                       @Html.Label(" " + SDTO.VerdictDescription); 
+                         <br />  
+                         } 
+                                 
+                             if(SDTO.NumberFailTest != null)   
+                             {                
+                                 <u><b>Ошибки на тесте :</b></u>
+                        @Html.Label(" " + SDTO.NumberFailTest);                            
+                              <br />
+                         }
+                         <u><b>Баллы : </b></u>
+                             @Html.Label("" + SDTO.SubmitPoints);
+                              <br />
+                             <u><b>Штрафы : </b></u>
+                             @Html.Label("" + SDTO.SubmitPenalty);
+                              <br />
+                             if(SDTO.MaxUsedTime != null) 
+                             {
+                                 <u><b>Время : </b></u>
+                             @Html.Label("" + SDTO.MaxUsedTime);
+                              <br />  
+                         }
+                             if(SDTO.MaxUsedMemory != null)
+                             {
+                                 <u><b>Память : </b></u>
+                             @Html.Label("" + SDTO.MaxUsedMemory);
+                              <br />  
+                         }
+                             if(!SDTO.Note.IsEmpty())
+                             {
+                                 <u><b>Комментарий : </b></u>
+                             @Html.Label("" + SDTO.Note);
+                              <br />  
+                         }
+                           
+                         }
+                     </div>
+                 </li>
+             </ul>
+         </b>
+         );
+    columns.Add().Encoded(false).Sanitized(false).RenderValueAs(d =>
+                   @<b>
+                       <ul>
+                           <li>
+                               @Html.ActionLink("Исходный код", "Code", new { id = d.Id })
+                           </li>
+                           <li>
+                               @Html.ActionLink("Лог админа", "LogAdmin", new { id = d.Id })
+                           </li>
+                           <li>
+                               @Html.ActionLink("Лог юзера", "LogUser", new { id = d.Id })
+                           </li>
+
+                       </ul>
+
+                   </b>);
+}).Sortable().Filterable().WithMultipleFilters().WithPaging(100).SetRowCssClasses(d => (!d.VerdictIsFinal ? "warning" : d.VerdictShortCode.CompareTo("IE") == 0 ? "error" : ""))
+
+        <br />
+    </fieldset>
+}
+}
